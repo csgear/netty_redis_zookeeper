@@ -24,15 +24,18 @@ public final class MsgProtos {
      * </pre>
      *
      * <code>uint32 id = 1;</code>
+     * @return The id.
      */
     int getId();
 
     /**
      * <code>string content = 2;</code>
+     * @return The content.
      */
     java.lang.String getContent();
     /**
      * <code>string content = 2;</code>
+     * @return The bytes for content.
      */
     com.google.protobuf.ByteString
         getContentBytes();
@@ -44,7 +47,7 @@ public final class MsgProtos {
    *
    * Protobuf type {@code com.crazymakercircle.netty.protocol.Msg}
    */
-  public  static final class Msg extends
+  public static final class Msg extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.crazymakercircle.netty.protocol.Msg)
       MsgOrBuilder {
@@ -54,64 +57,16 @@ public final class MsgProtos {
       super(builder);
     }
     private Msg() {
-      id_ = 0;
       content_ = "";
     }
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Msg();
     }
-    private Msg(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
 
-              id_ = input.readUInt32();
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              content_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.crazymakercircle.netty.protocol.MsgProtos.internal_static_com_crazymakercircle_netty_protocol_Msg_descriptor;
@@ -126,23 +81,28 @@ public final class MsgProtos {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private int id_;
+    private int id_ = 0;
     /**
      * <pre>
      * Unique ID number for this person.
      * </pre>
      *
      * <code>uint32 id = 1;</code>
+     * @return The id.
      */
+    @java.lang.Override
     public int getId() {
       return id_;
     }
 
     public static final int CONTENT_FIELD_NUMBER = 2;
-    private volatile java.lang.Object content_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object content_ = "";
     /**
      * <code>string content = 2;</code>
+     * @return The content.
      */
+    @java.lang.Override
     public java.lang.String getContent() {
       java.lang.Object ref = content_;
       if (ref instanceof java.lang.String) {
@@ -157,7 +117,9 @@ public final class MsgProtos {
     }
     /**
      * <code>string content = 2;</code>
+     * @return The bytes for content.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getContentBytes() {
       java.lang.Object ref = content_;
@@ -189,10 +151,10 @@ public final class MsgProtos {
       if (id_ != 0) {
         output.writeUInt32(1, id_);
       }
-      if (!getContentBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(content_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, content_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -205,10 +167,10 @@ public final class MsgProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(1, id_);
       }
-      if (!getContentBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(content_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, content_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -223,13 +185,12 @@ public final class MsgProtos {
       }
       com.crazymakercircle.netty.protocol.MsgProtos.Msg other = (com.crazymakercircle.netty.protocol.MsgProtos.Msg) obj;
 
-      boolean result = true;
-      result = result && (getId()
-          == other.getId());
-      result = result && getContent()
-          .equals(other.getContent());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (getId()
+          != other.getId()) return false;
+      if (!getContent()
+          .equals(other.getContent())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -243,7 +204,7 @@ public final class MsgProtos {
       hash = (53 * hash) + getId();
       hash = (37 * hash) + CONTENT_FIELD_NUMBER;
       hash = (53 * hash) + getContent().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -292,11 +253,13 @@ public final class MsgProtos {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
+
     public static com.crazymakercircle.netty.protocol.MsgProtos.Msg parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
+
     public static com.crazymakercircle.netty.protocol.MsgProtos.Msg parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -364,26 +327,20 @@ public final class MsgProtos {
 
       // Construct using com.crazymakercircle.netty.protocol.MsgProtos.Msg.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         id_ = 0;
-
         content_ = "";
-
         return this;
       }
 
@@ -410,43 +367,52 @@ public final class MsgProtos {
       @java.lang.Override
       public com.crazymakercircle.netty.protocol.MsgProtos.Msg buildPartial() {
         com.crazymakercircle.netty.protocol.MsgProtos.Msg result = new com.crazymakercircle.netty.protocol.MsgProtos.Msg(this);
-        result.id_ = id_;
-        result.content_ = content_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
+      private void buildPartial0(com.crazymakercircle.netty.protocol.MsgProtos.Msg result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.id_ = id_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.content_ = content_;
+        }
+      }
+
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -465,9 +431,10 @@ public final class MsgProtos {
         }
         if (!other.getContent().isEmpty()) {
           content_ = other.content_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -482,19 +449,43 @@ public final class MsgProtos {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.crazymakercircle.netty.protocol.MsgProtos.Msg parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                id_ = input.readUInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                content_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.crazymakercircle.netty.protocol.MsgProtos.Msg) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int id_ ;
       /**
@@ -503,7 +494,9 @@ public final class MsgProtos {
        * </pre>
        *
        * <code>uint32 id = 1;</code>
+       * @return The id.
        */
+      @java.lang.Override
       public int getId() {
         return id_;
       }
@@ -513,10 +506,13 @@ public final class MsgProtos {
        * </pre>
        *
        * <code>uint32 id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
        */
       public Builder setId(int value) {
-        
+
         id_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -526,9 +522,10 @@ public final class MsgProtos {
        * </pre>
        *
        * <code>uint32 id = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         id_ = 0;
         onChanged();
         return this;
@@ -537,6 +534,7 @@ public final class MsgProtos {
       private java.lang.Object content_ = "";
       /**
        * <code>string content = 2;</code>
+       * @return The content.
        */
       public java.lang.String getContent() {
         java.lang.Object ref = content_;
@@ -552,6 +550,7 @@ public final class MsgProtos {
       }
       /**
        * <code>string content = 2;</code>
+       * @return The bytes for content.
        */
       public com.google.protobuf.ByteString
           getContentBytes() {
@@ -568,44 +567,45 @@ public final class MsgProtos {
       }
       /**
        * <code>string content = 2;</code>
+       * @param value The content to set.
+       * @return This builder for chaining.
        */
       public Builder setContent(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         content_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
        * <code>string content = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearContent() {
-        
         content_ = getDefaultInstance().getContent();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
       /**
        * <code>string content = 2;</code>
+       * @param value The bytes for content to set.
+       * @return This builder for chaining.
        */
       public Builder setContentBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         content_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -635,7 +635,18 @@ public final class MsgProtos {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Msg(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -665,15 +676,18 @@ public final class MsgProtos {
      * </pre>
      *
      * <code>uint32 id = 1;</code>
+     * @return The id.
      */
     int getId();
 
     /**
      * <code>string content = 2;</code>
+     * @return The content.
      */
     java.lang.String getContent();
     /**
      * <code>string content = 2;</code>
+     * @return The bytes for content.
      */
     com.google.protobuf.ByteString
         getContentBytes();
@@ -681,7 +695,7 @@ public final class MsgProtos {
   /**
    * Protobuf type {@code com.crazymakercircle.netty.protocol.Msg2}
    */
-  public  static final class Msg2 extends
+  public static final class Msg2 extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.crazymakercircle.netty.protocol.Msg2)
       Msg2OrBuilder {
@@ -691,64 +705,16 @@ public final class MsgProtos {
       super(builder);
     }
     private Msg2() {
-      id_ = 0;
       content_ = "";
     }
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Msg2();
     }
-    private Msg2(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
 
-              id_ = input.readUInt32();
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              content_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.crazymakercircle.netty.protocol.MsgProtos.internal_static_com_crazymakercircle_netty_protocol_Msg2_descriptor;
@@ -763,23 +729,28 @@ public final class MsgProtos {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private int id_;
+    private int id_ = 0;
     /**
      * <pre>
      * Unique ID number for this person.
      * </pre>
      *
      * <code>uint32 id = 1;</code>
+     * @return The id.
      */
+    @java.lang.Override
     public int getId() {
       return id_;
     }
 
     public static final int CONTENT_FIELD_NUMBER = 2;
-    private volatile java.lang.Object content_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object content_ = "";
     /**
      * <code>string content = 2;</code>
+     * @return The content.
      */
+    @java.lang.Override
     public java.lang.String getContent() {
       java.lang.Object ref = content_;
       if (ref instanceof java.lang.String) {
@@ -794,7 +765,9 @@ public final class MsgProtos {
     }
     /**
      * <code>string content = 2;</code>
+     * @return The bytes for content.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getContentBytes() {
       java.lang.Object ref = content_;
@@ -826,10 +799,10 @@ public final class MsgProtos {
       if (id_ != 0) {
         output.writeUInt32(1, id_);
       }
-      if (!getContentBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(content_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, content_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -842,10 +815,10 @@ public final class MsgProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(1, id_);
       }
-      if (!getContentBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(content_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, content_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -860,13 +833,12 @@ public final class MsgProtos {
       }
       com.crazymakercircle.netty.protocol.MsgProtos.Msg2 other = (com.crazymakercircle.netty.protocol.MsgProtos.Msg2) obj;
 
-      boolean result = true;
-      result = result && (getId()
-          == other.getId());
-      result = result && getContent()
-          .equals(other.getContent());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (getId()
+          != other.getId()) return false;
+      if (!getContent()
+          .equals(other.getContent())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -880,7 +852,7 @@ public final class MsgProtos {
       hash = (53 * hash) + getId();
       hash = (37 * hash) + CONTENT_FIELD_NUMBER;
       hash = (53 * hash) + getContent().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -929,11 +901,13 @@ public final class MsgProtos {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
+
     public static com.crazymakercircle.netty.protocol.MsgProtos.Msg2 parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
+
     public static com.crazymakercircle.netty.protocol.MsgProtos.Msg2 parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -997,26 +971,20 @@ public final class MsgProtos {
 
       // Construct using com.crazymakercircle.netty.protocol.MsgProtos.Msg2.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         id_ = 0;
-
         content_ = "";
-
         return this;
       }
 
@@ -1043,43 +1011,52 @@ public final class MsgProtos {
       @java.lang.Override
       public com.crazymakercircle.netty.protocol.MsgProtos.Msg2 buildPartial() {
         com.crazymakercircle.netty.protocol.MsgProtos.Msg2 result = new com.crazymakercircle.netty.protocol.MsgProtos.Msg2(this);
-        result.id_ = id_;
-        result.content_ = content_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
+      private void buildPartial0(com.crazymakercircle.netty.protocol.MsgProtos.Msg2 result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.id_ = id_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.content_ = content_;
+        }
+      }
+
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -1098,9 +1075,10 @@ public final class MsgProtos {
         }
         if (!other.getContent().isEmpty()) {
           content_ = other.content_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1115,19 +1093,43 @@ public final class MsgProtos {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.crazymakercircle.netty.protocol.MsgProtos.Msg2 parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                id_ = input.readUInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                content_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.crazymakercircle.netty.protocol.MsgProtos.Msg2) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int id_ ;
       /**
@@ -1136,7 +1138,9 @@ public final class MsgProtos {
        * </pre>
        *
        * <code>uint32 id = 1;</code>
+       * @return The id.
        */
+      @java.lang.Override
       public int getId() {
         return id_;
       }
@@ -1146,10 +1150,13 @@ public final class MsgProtos {
        * </pre>
        *
        * <code>uint32 id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
        */
       public Builder setId(int value) {
-        
+
         id_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1159,9 +1166,10 @@ public final class MsgProtos {
        * </pre>
        *
        * <code>uint32 id = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         id_ = 0;
         onChanged();
         return this;
@@ -1170,6 +1178,7 @@ public final class MsgProtos {
       private java.lang.Object content_ = "";
       /**
        * <code>string content = 2;</code>
+       * @return The content.
        */
       public java.lang.String getContent() {
         java.lang.Object ref = content_;
@@ -1185,6 +1194,7 @@ public final class MsgProtos {
       }
       /**
        * <code>string content = 2;</code>
+       * @return The bytes for content.
        */
       public com.google.protobuf.ByteString
           getContentBytes() {
@@ -1201,44 +1211,45 @@ public final class MsgProtos {
       }
       /**
        * <code>string content = 2;</code>
+       * @param value The content to set.
+       * @return This builder for chaining.
        */
       public Builder setContent(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         content_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
        * <code>string content = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearContent() {
-        
         content_ = getDefaultInstance().getContent();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
       /**
        * <code>string content = 2;</code>
+       * @param value The bytes for content to set.
+       * @return This builder for chaining.
        */
       public Builder setContentBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         content_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -1268,7 +1279,18 @@ public final class MsgProtos {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Msg2(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1298,15 +1320,18 @@ public final class MsgProtos {
      * </pre>
      *
      * <code>uint32 id = 1;</code>
+     * @return The id.
      */
     int getId();
 
     /**
      * <code>string content = 2;</code>
+     * @return The content.
      */
     java.lang.String getContent();
     /**
      * <code>string content = 2;</code>
+     * @return The bytes for content.
      */
     com.google.protobuf.ByteString
         getContentBytes();
@@ -1314,7 +1339,7 @@ public final class MsgProtos {
   /**
    * Protobuf type {@code com.crazymakercircle.netty.protocol.Msg3}
    */
-  public  static final class Msg3 extends
+  public static final class Msg3 extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.crazymakercircle.netty.protocol.Msg3)
       Msg3OrBuilder {
@@ -1324,64 +1349,16 @@ public final class MsgProtos {
       super(builder);
     }
     private Msg3() {
-      id_ = 0;
       content_ = "";
     }
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Msg3();
     }
-    private Msg3(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
 
-              id_ = input.readUInt32();
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              content_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.crazymakercircle.netty.protocol.MsgProtos.internal_static_com_crazymakercircle_netty_protocol_Msg3_descriptor;
@@ -1396,23 +1373,28 @@ public final class MsgProtos {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private int id_;
+    private int id_ = 0;
     /**
      * <pre>
      * Unique ID number for this person.
      * </pre>
      *
      * <code>uint32 id = 1;</code>
+     * @return The id.
      */
+    @java.lang.Override
     public int getId() {
       return id_;
     }
 
     public static final int CONTENT_FIELD_NUMBER = 2;
-    private volatile java.lang.Object content_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object content_ = "";
     /**
      * <code>string content = 2;</code>
+     * @return The content.
      */
+    @java.lang.Override
     public java.lang.String getContent() {
       java.lang.Object ref = content_;
       if (ref instanceof java.lang.String) {
@@ -1427,7 +1409,9 @@ public final class MsgProtos {
     }
     /**
      * <code>string content = 2;</code>
+     * @return The bytes for content.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getContentBytes() {
       java.lang.Object ref = content_;
@@ -1459,10 +1443,10 @@ public final class MsgProtos {
       if (id_ != 0) {
         output.writeUInt32(1, id_);
       }
-      if (!getContentBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(content_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, content_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1475,10 +1459,10 @@ public final class MsgProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(1, id_);
       }
-      if (!getContentBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(content_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, content_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1493,13 +1477,12 @@ public final class MsgProtos {
       }
       com.crazymakercircle.netty.protocol.MsgProtos.Msg3 other = (com.crazymakercircle.netty.protocol.MsgProtos.Msg3) obj;
 
-      boolean result = true;
-      result = result && (getId()
-          == other.getId());
-      result = result && getContent()
-          .equals(other.getContent());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (getId()
+          != other.getId()) return false;
+      if (!getContent()
+          .equals(other.getContent())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -1513,7 +1496,7 @@ public final class MsgProtos {
       hash = (53 * hash) + getId();
       hash = (37 * hash) + CONTENT_FIELD_NUMBER;
       hash = (53 * hash) + getContent().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1562,11 +1545,13 @@ public final class MsgProtos {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
+
     public static com.crazymakercircle.netty.protocol.MsgProtos.Msg3 parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
+
     public static com.crazymakercircle.netty.protocol.MsgProtos.Msg3 parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1630,26 +1615,20 @@ public final class MsgProtos {
 
       // Construct using com.crazymakercircle.netty.protocol.MsgProtos.Msg3.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         id_ = 0;
-
         content_ = "";
-
         return this;
       }
 
@@ -1676,43 +1655,52 @@ public final class MsgProtos {
       @java.lang.Override
       public com.crazymakercircle.netty.protocol.MsgProtos.Msg3 buildPartial() {
         com.crazymakercircle.netty.protocol.MsgProtos.Msg3 result = new com.crazymakercircle.netty.protocol.MsgProtos.Msg3(this);
-        result.id_ = id_;
-        result.content_ = content_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
+      private void buildPartial0(com.crazymakercircle.netty.protocol.MsgProtos.Msg3 result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.id_ = id_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.content_ = content_;
+        }
+      }
+
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -1731,9 +1719,10 @@ public final class MsgProtos {
         }
         if (!other.getContent().isEmpty()) {
           content_ = other.content_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1748,19 +1737,43 @@ public final class MsgProtos {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.crazymakercircle.netty.protocol.MsgProtos.Msg3 parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                id_ = input.readUInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                content_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.crazymakercircle.netty.protocol.MsgProtos.Msg3) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int id_ ;
       /**
@@ -1769,7 +1782,9 @@ public final class MsgProtos {
        * </pre>
        *
        * <code>uint32 id = 1;</code>
+       * @return The id.
        */
+      @java.lang.Override
       public int getId() {
         return id_;
       }
@@ -1779,10 +1794,13 @@ public final class MsgProtos {
        * </pre>
        *
        * <code>uint32 id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
        */
       public Builder setId(int value) {
-        
+
         id_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1792,9 +1810,10 @@ public final class MsgProtos {
        * </pre>
        *
        * <code>uint32 id = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         id_ = 0;
         onChanged();
         return this;
@@ -1803,6 +1822,7 @@ public final class MsgProtos {
       private java.lang.Object content_ = "";
       /**
        * <code>string content = 2;</code>
+       * @return The content.
        */
       public java.lang.String getContent() {
         java.lang.Object ref = content_;
@@ -1818,6 +1838,7 @@ public final class MsgProtos {
       }
       /**
        * <code>string content = 2;</code>
+       * @return The bytes for content.
        */
       public com.google.protobuf.ByteString
           getContentBytes() {
@@ -1834,44 +1855,45 @@ public final class MsgProtos {
       }
       /**
        * <code>string content = 2;</code>
+       * @param value The content to set.
+       * @return This builder for chaining.
        */
       public Builder setContent(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         content_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
        * <code>string content = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearContent() {
-        
         content_ = getDefaultInstance().getContent();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
       /**
        * <code>string content = 2;</code>
+       * @param value The bytes for content to set.
+       * @return This builder for chaining.
        */
       public Builder setContentBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         content_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -1901,7 +1923,18 @@ public final class MsgProtos {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Msg3(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1952,18 +1985,10 @@ public final class MsgProtos {
       "\n#com.crazymakercircle.netty.protocolB\tM" +
       "sgProtosb\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-        }, assigner);
+        });
     internal_static_com_crazymakercircle_netty_protocol_Msg_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_com_crazymakercircle_netty_protocol_Msg_fieldAccessorTable = new

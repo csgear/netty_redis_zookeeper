@@ -105,6 +105,8 @@ public final class ProtoMsg {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -112,6 +114,10 @@ public final class ProtoMsg {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static HeadType forNumber(int value) {
       switch (value) {
         case 0: return LOGIN_REQUEST;
@@ -141,6 +147,10 @@ public final class ProtoMsg {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -181,45 +191,54 @@ public final class ProtoMsg {
 
     /**
      * <code>string uid = 1;</code>
+     * @return The uid.
      */
     java.lang.String getUid();
     /**
      * <code>string uid = 1;</code>
+     * @return The bytes for uid.
      */
     com.google.protobuf.ByteString
         getUidBytes();
 
     /**
      * <code>string deviceId = 2;</code>
+     * @return The deviceId.
      */
     java.lang.String getDeviceId();
     /**
      * <code>string deviceId = 2;</code>
+     * @return The bytes for deviceId.
      */
     com.google.protobuf.ByteString
         getDeviceIdBytes();
 
     /**
      * <code>string token = 3;</code>
+     * @return The token.
      */
     java.lang.String getToken();
     /**
      * <code>string token = 3;</code>
+     * @return The bytes for token.
      */
     com.google.protobuf.ByteString
         getTokenBytes();
 
     /**
      * <code>uint32 platform = 4;</code>
+     * @return The platform.
      */
     int getPlatform();
 
     /**
      * <code>string app_version = 5;</code>
+     * @return The appVersion.
      */
     java.lang.String getAppVersion();
     /**
      * <code>string app_version = 5;</code>
+     * @return The bytes for appVersion.
      */
     com.google.protobuf.ByteString
         getAppVersionBytes();
@@ -227,7 +246,7 @@ public final class ProtoMsg {
   /**
    * Protobuf type {@code com.crazymakercircle.im.common.bean.msg.LoginRequest}
    */
-  public  static final class LoginRequest extends
+  public static final class LoginRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.crazymakercircle.im.common.bean.msg.LoginRequest)
       LoginRequestOrBuilder {
@@ -240,82 +259,16 @@ public final class ProtoMsg {
       uid_ = "";
       deviceId_ = "";
       token_ = "";
-      platform_ = 0;
       appVersion_ = "";
     }
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new LoginRequest();
     }
-    private LoginRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
 
-              uid_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              deviceId_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              token_ = s;
-              break;
-            }
-            case 32: {
-
-              platform_ = input.readUInt32();
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              appVersion_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.crazymakercircle.im.common.bean.msg.ProtoMsg.internal_static_com_crazymakercircle_im_common_bean_msg_LoginRequest_descriptor;
@@ -330,10 +283,13 @@ public final class ProtoMsg {
     }
 
     public static final int UID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object uid_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object uid_ = "";
     /**
      * <code>string uid = 1;</code>
+     * @return The uid.
      */
+    @java.lang.Override
     public java.lang.String getUid() {
       java.lang.Object ref = uid_;
       if (ref instanceof java.lang.String) {
@@ -348,7 +304,9 @@ public final class ProtoMsg {
     }
     /**
      * <code>string uid = 1;</code>
+     * @return The bytes for uid.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getUidBytes() {
       java.lang.Object ref = uid_;
@@ -364,10 +322,13 @@ public final class ProtoMsg {
     }
 
     public static final int DEVICEID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object deviceId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object deviceId_ = "";
     /**
      * <code>string deviceId = 2;</code>
+     * @return The deviceId.
      */
+    @java.lang.Override
     public java.lang.String getDeviceId() {
       java.lang.Object ref = deviceId_;
       if (ref instanceof java.lang.String) {
@@ -382,7 +343,9 @@ public final class ProtoMsg {
     }
     /**
      * <code>string deviceId = 2;</code>
+     * @return The bytes for deviceId.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getDeviceIdBytes() {
       java.lang.Object ref = deviceId_;
@@ -398,10 +361,13 @@ public final class ProtoMsg {
     }
 
     public static final int TOKEN_FIELD_NUMBER = 3;
-    private volatile java.lang.Object token_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object token_ = "";
     /**
      * <code>string token = 3;</code>
+     * @return The token.
      */
+    @java.lang.Override
     public java.lang.String getToken() {
       java.lang.Object ref = token_;
       if (ref instanceof java.lang.String) {
@@ -416,7 +382,9 @@ public final class ProtoMsg {
     }
     /**
      * <code>string token = 3;</code>
+     * @return The bytes for token.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getTokenBytes() {
       java.lang.Object ref = token_;
@@ -432,19 +400,24 @@ public final class ProtoMsg {
     }
 
     public static final int PLATFORM_FIELD_NUMBER = 4;
-    private int platform_;
+    private int platform_ = 0;
     /**
      * <code>uint32 platform = 4;</code>
+     * @return The platform.
      */
+    @java.lang.Override
     public int getPlatform() {
       return platform_;
     }
 
     public static final int APP_VERSION_FIELD_NUMBER = 5;
-    private volatile java.lang.Object appVersion_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object appVersion_ = "";
     /**
      * <code>string app_version = 5;</code>
+     * @return The appVersion.
      */
+    @java.lang.Override
     public java.lang.String getAppVersion() {
       java.lang.Object ref = appVersion_;
       if (ref instanceof java.lang.String) {
@@ -459,7 +432,9 @@ public final class ProtoMsg {
     }
     /**
      * <code>string app_version = 5;</code>
+     * @return The bytes for appVersion.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getAppVersionBytes() {
       java.lang.Object ref = appVersion_;
@@ -488,22 +463,22 @@ public final class ProtoMsg {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getUidBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uid_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uid_);
       }
-      if (!getDeviceIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deviceId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, deviceId_);
       }
-      if (!getTokenBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(token_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, token_);
       }
       if (platform_ != 0) {
         output.writeUInt32(4, platform_);
       }
-      if (!getAppVersionBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(appVersion_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, appVersion_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -512,23 +487,23 @@ public final class ProtoMsg {
       if (size != -1) return size;
 
       size = 0;
-      if (!getUidBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uid_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, uid_);
       }
-      if (!getDeviceIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deviceId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, deviceId_);
       }
-      if (!getTokenBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(token_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, token_);
       }
       if (platform_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(4, platform_);
       }
-      if (!getAppVersionBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(appVersion_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, appVersion_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -543,19 +518,18 @@ public final class ProtoMsg {
       }
       com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest other = (com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest) obj;
 
-      boolean result = true;
-      result = result && getUid()
-          .equals(other.getUid());
-      result = result && getDeviceId()
-          .equals(other.getDeviceId());
-      result = result && getToken()
-          .equals(other.getToken());
-      result = result && (getPlatform()
-          == other.getPlatform());
-      result = result && getAppVersion()
-          .equals(other.getAppVersion());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!getUid()
+          .equals(other.getUid())) return false;
+      if (!getDeviceId()
+          .equals(other.getDeviceId())) return false;
+      if (!getToken()
+          .equals(other.getToken())) return false;
+      if (getPlatform()
+          != other.getPlatform()) return false;
+      if (!getAppVersion()
+          .equals(other.getAppVersion())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -575,7 +549,7 @@ public final class ProtoMsg {
       hash = (53 * hash) + getPlatform();
       hash = (37 * hash) + APP_VERSION_FIELD_NUMBER;
       hash = (53 * hash) + getAppVersion().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -624,11 +598,13 @@ public final class ProtoMsg {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
+
     public static com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
+
     public static com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -692,32 +668,23 @@ public final class ProtoMsg {
 
       // Construct using com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         uid_ = "";
-
         deviceId_ = "";
-
         token_ = "";
-
         platform_ = 0;
-
         appVersion_ = "";
-
         return this;
       }
 
@@ -744,46 +711,61 @@ public final class ProtoMsg {
       @java.lang.Override
       public com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest buildPartial() {
         com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest result = new com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest(this);
-        result.uid_ = uid_;
-        result.deviceId_ = deviceId_;
-        result.token_ = token_;
-        result.platform_ = platform_;
-        result.appVersion_ = appVersion_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
+      private void buildPartial0(com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.uid_ = uid_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.deviceId_ = deviceId_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.token_ = token_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.platform_ = platform_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.appVersion_ = appVersion_;
+        }
+      }
+
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -799,14 +781,17 @@ public final class ProtoMsg {
         if (other == com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest.getDefaultInstance()) return this;
         if (!other.getUid().isEmpty()) {
           uid_ = other.uid_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getDeviceId().isEmpty()) {
           deviceId_ = other.deviceId_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getToken().isEmpty()) {
           token_ = other.token_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (other.getPlatform() != 0) {
@@ -814,9 +799,10 @@ public final class ProtoMsg {
         }
         if (!other.getAppVersion().isEmpty()) {
           appVersion_ = other.appVersion_;
+          bitField0_ |= 0x00000010;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -831,23 +817,63 @@ public final class ProtoMsg {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                uid_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                deviceId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                token_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 32: {
+                platform_ = input.readUInt32();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 42: {
+                appVersion_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object uid_ = "";
       /**
        * <code>string uid = 1;</code>
+       * @return The uid.
        */
       public java.lang.String getUid() {
         java.lang.Object ref = uid_;
@@ -863,6 +889,7 @@ public final class ProtoMsg {
       }
       /**
        * <code>string uid = 1;</code>
+       * @return The bytes for uid.
        */
       public com.google.protobuf.ByteString
           getUidBytes() {
@@ -879,37 +906,38 @@ public final class ProtoMsg {
       }
       /**
        * <code>string uid = 1;</code>
+       * @param value The uid to set.
+       * @return This builder for chaining.
        */
       public Builder setUid(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         uid_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
        * <code>string uid = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearUid() {
-        
         uid_ = getDefaultInstance().getUid();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
       /**
        * <code>string uid = 1;</code>
+       * @param value The bytes for uid to set.
+       * @return This builder for chaining.
        */
       public Builder setUidBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         uid_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -917,6 +945,7 @@ public final class ProtoMsg {
       private java.lang.Object deviceId_ = "";
       /**
        * <code>string deviceId = 2;</code>
+       * @return The deviceId.
        */
       public java.lang.String getDeviceId() {
         java.lang.Object ref = deviceId_;
@@ -932,6 +961,7 @@ public final class ProtoMsg {
       }
       /**
        * <code>string deviceId = 2;</code>
+       * @return The bytes for deviceId.
        */
       public com.google.protobuf.ByteString
           getDeviceIdBytes() {
@@ -948,37 +978,38 @@ public final class ProtoMsg {
       }
       /**
        * <code>string deviceId = 2;</code>
+       * @param value The deviceId to set.
+       * @return This builder for chaining.
        */
       public Builder setDeviceId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         deviceId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
        * <code>string deviceId = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDeviceId() {
-        
         deviceId_ = getDefaultInstance().getDeviceId();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
       /**
        * <code>string deviceId = 2;</code>
+       * @param value The bytes for deviceId to set.
+       * @return This builder for chaining.
        */
       public Builder setDeviceIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         deviceId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -986,6 +1017,7 @@ public final class ProtoMsg {
       private java.lang.Object token_ = "";
       /**
        * <code>string token = 3;</code>
+       * @return The token.
        */
       public java.lang.String getToken() {
         java.lang.Object ref = token_;
@@ -1001,6 +1033,7 @@ public final class ProtoMsg {
       }
       /**
        * <code>string token = 3;</code>
+       * @return The bytes for token.
        */
       public com.google.protobuf.ByteString
           getTokenBytes() {
@@ -1017,37 +1050,38 @@ public final class ProtoMsg {
       }
       /**
        * <code>string token = 3;</code>
+       * @param value The token to set.
+       * @return This builder for chaining.
        */
       public Builder setToken(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         token_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
        * <code>string token = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearToken() {
-        
         token_ = getDefaultInstance().getToken();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
       /**
        * <code>string token = 3;</code>
+       * @param value The bytes for token to set.
+       * @return This builder for chaining.
        */
       public Builder setTokenBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         token_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1055,24 +1089,30 @@ public final class ProtoMsg {
       private int platform_ ;
       /**
        * <code>uint32 platform = 4;</code>
+       * @return The platform.
        */
+      @java.lang.Override
       public int getPlatform() {
         return platform_;
       }
       /**
        * <code>uint32 platform = 4;</code>
+       * @param value The platform to set.
+       * @return This builder for chaining.
        */
       public Builder setPlatform(int value) {
-        
+
         platform_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
       /**
        * <code>uint32 platform = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPlatform() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         platform_ = 0;
         onChanged();
         return this;
@@ -1081,6 +1121,7 @@ public final class ProtoMsg {
       private java.lang.Object appVersion_ = "";
       /**
        * <code>string app_version = 5;</code>
+       * @return The appVersion.
        */
       public java.lang.String getAppVersion() {
         java.lang.Object ref = appVersion_;
@@ -1096,6 +1137,7 @@ public final class ProtoMsg {
       }
       /**
        * <code>string app_version = 5;</code>
+       * @return The bytes for appVersion.
        */
       public com.google.protobuf.ByteString
           getAppVersionBytes() {
@@ -1112,44 +1154,45 @@ public final class ProtoMsg {
       }
       /**
        * <code>string app_version = 5;</code>
+       * @param value The appVersion to set.
+       * @return This builder for chaining.
        */
       public Builder setAppVersion(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         appVersion_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
       /**
        * <code>string app_version = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAppVersion() {
-        
         appVersion_ = getDefaultInstance().getAppVersion();
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
       /**
        * <code>string app_version = 5;</code>
+       * @param value The bytes for appVersion to set.
+       * @return This builder for chaining.
        */
       public Builder setAppVersionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         appVersion_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -1179,7 +1222,18 @@ public final class ProtoMsg {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LoginRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1205,33 +1259,38 @@ public final class ProtoMsg {
 
     /**
      * <code>bool result = 1;</code>
+     * @return The result.
      */
     boolean getResult();
 
     /**
      * <code>uint32 code = 2;</code>
+     * @return The code.
      */
     int getCode();
 
     /**
      * <code>string info = 3;</code>
+     * @return The info.
      */
     java.lang.String getInfo();
     /**
      * <code>string info = 3;</code>
+     * @return The bytes for info.
      */
     com.google.protobuf.ByteString
         getInfoBytes();
 
     /**
      * <code>uint32 expose = 4;</code>
+     * @return The expose.
      */
     int getExpose();
   }
   /**
    * Protobuf type {@code com.crazymakercircle.im.common.bean.msg.LoginResponse}
    */
-  public  static final class LoginResponse extends
+  public static final class LoginResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.crazymakercircle.im.common.bean.msg.LoginResponse)
       LoginResponseOrBuilder {
@@ -1241,76 +1300,16 @@ public final class ProtoMsg {
       super(builder);
     }
     private LoginResponse() {
-      result_ = false;
-      code_ = 0;
       info_ = "";
-      expose_ = 0;
     }
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new LoginResponse();
     }
-    private LoginResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
 
-              result_ = input.readBool();
-              break;
-            }
-            case 16: {
-
-              code_ = input.readUInt32();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              info_ = s;
-              break;
-            }
-            case 32: {
-
-              expose_ = input.readUInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.crazymakercircle.im.common.bean.msg.ProtoMsg.internal_static_com_crazymakercircle_im_common_bean_msg_LoginResponse_descriptor;
@@ -1325,28 +1324,35 @@ public final class ProtoMsg {
     }
 
     public static final int RESULT_FIELD_NUMBER = 1;
-    private boolean result_;
+    private boolean result_ = false;
     /**
      * <code>bool result = 1;</code>
+     * @return The result.
      */
+    @java.lang.Override
     public boolean getResult() {
       return result_;
     }
 
     public static final int CODE_FIELD_NUMBER = 2;
-    private int code_;
+    private int code_ = 0;
     /**
      * <code>uint32 code = 2;</code>
+     * @return The code.
      */
+    @java.lang.Override
     public int getCode() {
       return code_;
     }
 
     public static final int INFO_FIELD_NUMBER = 3;
-    private volatile java.lang.Object info_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object info_ = "";
     /**
      * <code>string info = 3;</code>
+     * @return The info.
      */
+    @java.lang.Override
     public java.lang.String getInfo() {
       java.lang.Object ref = info_;
       if (ref instanceof java.lang.String) {
@@ -1361,7 +1367,9 @@ public final class ProtoMsg {
     }
     /**
      * <code>string info = 3;</code>
+     * @return The bytes for info.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getInfoBytes() {
       java.lang.Object ref = info_;
@@ -1377,10 +1385,12 @@ public final class ProtoMsg {
     }
 
     public static final int EXPOSE_FIELD_NUMBER = 4;
-    private int expose_;
+    private int expose_ = 0;
     /**
      * <code>uint32 expose = 4;</code>
+     * @return The expose.
      */
+    @java.lang.Override
     public int getExpose() {
       return expose_;
     }
@@ -1405,13 +1415,13 @@ public final class ProtoMsg {
       if (code_ != 0) {
         output.writeUInt32(2, code_);
       }
-      if (!getInfoBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(info_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, info_);
       }
       if (expose_ != 0) {
         output.writeUInt32(4, expose_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1428,14 +1438,14 @@ public final class ProtoMsg {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(2, code_);
       }
-      if (!getInfoBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(info_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, info_);
       }
       if (expose_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(4, expose_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1450,17 +1460,16 @@ public final class ProtoMsg {
       }
       com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse other = (com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse) obj;
 
-      boolean result = true;
-      result = result && (getResult()
-          == other.getResult());
-      result = result && (getCode()
-          == other.getCode());
-      result = result && getInfo()
-          .equals(other.getInfo());
-      result = result && (getExpose()
-          == other.getExpose());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (getResult()
+          != other.getResult()) return false;
+      if (getCode()
+          != other.getCode()) return false;
+      if (!getInfo()
+          .equals(other.getInfo())) return false;
+      if (getExpose()
+          != other.getExpose()) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -1479,7 +1488,7 @@ public final class ProtoMsg {
       hash = (53 * hash) + getInfo().hashCode();
       hash = (37 * hash) + EXPOSE_FIELD_NUMBER;
       hash = (53 * hash) + getExpose();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1528,11 +1537,13 @@ public final class ProtoMsg {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
+
     public static com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
+
     public static com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1596,30 +1607,22 @@ public final class ProtoMsg {
 
       // Construct using com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         result_ = false;
-
         code_ = 0;
-
         info_ = "";
-
         expose_ = 0;
-
         return this;
       }
 
@@ -1646,45 +1649,58 @@ public final class ProtoMsg {
       @java.lang.Override
       public com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse buildPartial() {
         com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse result = new com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse(this);
-        result.result_ = result_;
-        result.code_ = code_;
-        result.info_ = info_;
-        result.expose_ = expose_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
+      private void buildPartial0(com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.result_ = result_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.code_ = code_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.info_ = info_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.expose_ = expose_;
+        }
+      }
+
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -1706,12 +1722,13 @@ public final class ProtoMsg {
         }
         if (!other.getInfo().isEmpty()) {
           info_ = other.info_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (other.getExpose() != 0) {
           setExpose(other.getExpose());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1726,41 +1743,81 @@ public final class ProtoMsg {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                result_ = input.readBool();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                code_ = input.readUInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                info_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 32: {
+                expose_ = input.readUInt32();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private boolean result_ ;
       /**
        * <code>bool result = 1;</code>
+       * @return The result.
        */
+      @java.lang.Override
       public boolean getResult() {
         return result_;
       }
       /**
        * <code>bool result = 1;</code>
+       * @param value The result to set.
+       * @return This builder for chaining.
        */
       public Builder setResult(boolean value) {
-        
+
         result_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
        * <code>bool result = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearResult() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         result_ = false;
         onChanged();
         return this;
@@ -1769,24 +1826,30 @@ public final class ProtoMsg {
       private int code_ ;
       /**
        * <code>uint32 code = 2;</code>
+       * @return The code.
        */
+      @java.lang.Override
       public int getCode() {
         return code_;
       }
       /**
        * <code>uint32 code = 2;</code>
+       * @param value The code to set.
+       * @return This builder for chaining.
        */
       public Builder setCode(int value) {
-        
+
         code_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
        * <code>uint32 code = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearCode() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         code_ = 0;
         onChanged();
         return this;
@@ -1795,6 +1858,7 @@ public final class ProtoMsg {
       private java.lang.Object info_ = "";
       /**
        * <code>string info = 3;</code>
+       * @return The info.
        */
       public java.lang.String getInfo() {
         java.lang.Object ref = info_;
@@ -1810,6 +1874,7 @@ public final class ProtoMsg {
       }
       /**
        * <code>string info = 3;</code>
+       * @return The bytes for info.
        */
       public com.google.protobuf.ByteString
           getInfoBytes() {
@@ -1826,37 +1891,38 @@ public final class ProtoMsg {
       }
       /**
        * <code>string info = 3;</code>
+       * @param value The info to set.
+       * @return This builder for chaining.
        */
       public Builder setInfo(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         info_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
        * <code>string info = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearInfo() {
-        
         info_ = getDefaultInstance().getInfo();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
       /**
        * <code>string info = 3;</code>
+       * @param value The bytes for info to set.
+       * @return This builder for chaining.
        */
       public Builder setInfoBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         info_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1864,24 +1930,30 @@ public final class ProtoMsg {
       private int expose_ ;
       /**
        * <code>uint32 expose = 4;</code>
+       * @return The expose.
        */
+      @java.lang.Override
       public int getExpose() {
         return expose_;
       }
       /**
        * <code>uint32 expose = 4;</code>
+       * @param value The expose to set.
+       * @return This builder for chaining.
        */
       public Builder setExpose(int value) {
-        
+
         expose_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
       /**
        * <code>uint32 expose = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearExpose() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         expose_ = 0;
         onChanged();
         return this;
@@ -1889,7 +1961,7 @@ public final class ProtoMsg {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -1919,7 +1991,18 @@ public final class ProtoMsg {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LoginResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1945,85 +2028,102 @@ public final class ProtoMsg {
 
     /**
      * <code>uint64 msg_id = 1;</code>
+     * @return The msgId.
      */
     long getMsgId();
 
     /**
      * <code>string from = 2;</code>
+     * @return The from.
      */
     java.lang.String getFrom();
     /**
      * <code>string from = 2;</code>
+     * @return The bytes for from.
      */
     com.google.protobuf.ByteString
         getFromBytes();
 
     /**
      * <code>string to = 3;</code>
+     * @return The to.
      */
     java.lang.String getTo();
     /**
      * <code>string to = 3;</code>
+     * @return The bytes for to.
      */
     com.google.protobuf.ByteString
         getToBytes();
 
     /**
      * <code>uint64 time = 4;</code>
+     * @return The time.
      */
     long getTime();
 
     /**
      * <code>uint32 msg_type = 5;</code>
+     * @return The msgType.
      */
     int getMsgType();
 
     /**
      * <code>string content = 6;</code>
+     * @return The content.
      */
     java.lang.String getContent();
     /**
      * <code>string content = 6;</code>
+     * @return The bytes for content.
      */
     com.google.protobuf.ByteString
         getContentBytes();
 
     /**
      * <code>string url = 8;</code>
+     * @return The url.
      */
     java.lang.String getUrl();
     /**
      * <code>string url = 8;</code>
+     * @return The bytes for url.
      */
     com.google.protobuf.ByteString
         getUrlBytes();
 
     /**
      * <code>string property = 9;</code>
+     * @return The property.
      */
     java.lang.String getProperty();
     /**
      * <code>string property = 9;</code>
+     * @return The bytes for property.
      */
     com.google.protobuf.ByteString
         getPropertyBytes();
 
     /**
      * <code>string from_nick = 10;</code>
+     * @return The fromNick.
      */
     java.lang.String getFromNick();
     /**
      * <code>string from_nick = 10;</code>
+     * @return The bytes for fromNick.
      */
     com.google.protobuf.ByteString
         getFromNickBytes();
 
     /**
      * <code>string json = 11;</code>
+     * @return The json.
      */
     java.lang.String getJson();
     /**
      * <code>string json = 11;</code>
+     * @return The bytes for json.
      */
     com.google.protobuf.ByteString
         getJsonBytes();
@@ -2031,7 +2131,7 @@ public final class ProtoMsg {
   /**
    * Protobuf type {@code com.crazymakercircle.im.common.bean.msg.MessageRequest}
    */
-  public  static final class MessageRequest extends
+  public static final class MessageRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.crazymakercircle.im.common.bean.msg.MessageRequest)
       MessageRequestOrBuilder {
@@ -2041,11 +2141,8 @@ public final class ProtoMsg {
       super(builder);
     }
     private MessageRequest() {
-      msgId_ = 0L;
       from_ = "";
       to_ = "";
-      time_ = 0L;
-      msgType_ = 0;
       content_ = "";
       url_ = "";
       property_ = "";
@@ -2054,105 +2151,12 @@ public final class ProtoMsg {
     }
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MessageRequest();
     }
-    private MessageRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
 
-              msgId_ = input.readUInt64();
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              from_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              to_ = s;
-              break;
-            }
-            case 32: {
-
-              time_ = input.readUInt64();
-              break;
-            }
-            case 40: {
-
-              msgType_ = input.readUInt32();
-              break;
-            }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              content_ = s;
-              break;
-            }
-            case 66: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              url_ = s;
-              break;
-            }
-            case 74: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              property_ = s;
-              break;
-            }
-            case 82: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              fromNick_ = s;
-              break;
-            }
-            case 90: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              json_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.crazymakercircle.im.common.bean.msg.ProtoMsg.internal_static_com_crazymakercircle_im_common_bean_msg_MessageRequest_descriptor;
@@ -2167,19 +2171,24 @@ public final class ProtoMsg {
     }
 
     public static final int MSG_ID_FIELD_NUMBER = 1;
-    private long msgId_;
+    private long msgId_ = 0L;
     /**
      * <code>uint64 msg_id = 1;</code>
+     * @return The msgId.
      */
+    @java.lang.Override
     public long getMsgId() {
       return msgId_;
     }
 
     public static final int FROM_FIELD_NUMBER = 2;
-    private volatile java.lang.Object from_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object from_ = "";
     /**
      * <code>string from = 2;</code>
+     * @return The from.
      */
+    @java.lang.Override
     public java.lang.String getFrom() {
       java.lang.Object ref = from_;
       if (ref instanceof java.lang.String) {
@@ -2194,7 +2203,9 @@ public final class ProtoMsg {
     }
     /**
      * <code>string from = 2;</code>
+     * @return The bytes for from.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getFromBytes() {
       java.lang.Object ref = from_;
@@ -2210,10 +2221,13 @@ public final class ProtoMsg {
     }
 
     public static final int TO_FIELD_NUMBER = 3;
-    private volatile java.lang.Object to_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object to_ = "";
     /**
      * <code>string to = 3;</code>
+     * @return The to.
      */
+    @java.lang.Override
     public java.lang.String getTo() {
       java.lang.Object ref = to_;
       if (ref instanceof java.lang.String) {
@@ -2228,7 +2242,9 @@ public final class ProtoMsg {
     }
     /**
      * <code>string to = 3;</code>
+     * @return The bytes for to.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getToBytes() {
       java.lang.Object ref = to_;
@@ -2244,28 +2260,35 @@ public final class ProtoMsg {
     }
 
     public static final int TIME_FIELD_NUMBER = 4;
-    private long time_;
+    private long time_ = 0L;
     /**
      * <code>uint64 time = 4;</code>
+     * @return The time.
      */
+    @java.lang.Override
     public long getTime() {
       return time_;
     }
 
     public static final int MSG_TYPE_FIELD_NUMBER = 5;
-    private int msgType_;
+    private int msgType_ = 0;
     /**
      * <code>uint32 msg_type = 5;</code>
+     * @return The msgType.
      */
+    @java.lang.Override
     public int getMsgType() {
       return msgType_;
     }
 
     public static final int CONTENT_FIELD_NUMBER = 6;
-    private volatile java.lang.Object content_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object content_ = "";
     /**
      * <code>string content = 6;</code>
+     * @return The content.
      */
+    @java.lang.Override
     public java.lang.String getContent() {
       java.lang.Object ref = content_;
       if (ref instanceof java.lang.String) {
@@ -2280,7 +2303,9 @@ public final class ProtoMsg {
     }
     /**
      * <code>string content = 6;</code>
+     * @return The bytes for content.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getContentBytes() {
       java.lang.Object ref = content_;
@@ -2296,10 +2321,13 @@ public final class ProtoMsg {
     }
 
     public static final int URL_FIELD_NUMBER = 8;
-    private volatile java.lang.Object url_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object url_ = "";
     /**
      * <code>string url = 8;</code>
+     * @return The url.
      */
+    @java.lang.Override
     public java.lang.String getUrl() {
       java.lang.Object ref = url_;
       if (ref instanceof java.lang.String) {
@@ -2314,7 +2342,9 @@ public final class ProtoMsg {
     }
     /**
      * <code>string url = 8;</code>
+     * @return The bytes for url.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getUrlBytes() {
       java.lang.Object ref = url_;
@@ -2330,10 +2360,13 @@ public final class ProtoMsg {
     }
 
     public static final int PROPERTY_FIELD_NUMBER = 9;
-    private volatile java.lang.Object property_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object property_ = "";
     /**
      * <code>string property = 9;</code>
+     * @return The property.
      */
+    @java.lang.Override
     public java.lang.String getProperty() {
       java.lang.Object ref = property_;
       if (ref instanceof java.lang.String) {
@@ -2348,7 +2381,9 @@ public final class ProtoMsg {
     }
     /**
      * <code>string property = 9;</code>
+     * @return The bytes for property.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getPropertyBytes() {
       java.lang.Object ref = property_;
@@ -2364,10 +2399,13 @@ public final class ProtoMsg {
     }
 
     public static final int FROM_NICK_FIELD_NUMBER = 10;
-    private volatile java.lang.Object fromNick_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object fromNick_ = "";
     /**
      * <code>string from_nick = 10;</code>
+     * @return The fromNick.
      */
+    @java.lang.Override
     public java.lang.String getFromNick() {
       java.lang.Object ref = fromNick_;
       if (ref instanceof java.lang.String) {
@@ -2382,7 +2420,9 @@ public final class ProtoMsg {
     }
     /**
      * <code>string from_nick = 10;</code>
+     * @return The bytes for fromNick.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getFromNickBytes() {
       java.lang.Object ref = fromNick_;
@@ -2398,10 +2438,13 @@ public final class ProtoMsg {
     }
 
     public static final int JSON_FIELD_NUMBER = 11;
-    private volatile java.lang.Object json_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object json_ = "";
     /**
      * <code>string json = 11;</code>
+     * @return The json.
      */
+    @java.lang.Override
     public java.lang.String getJson() {
       java.lang.Object ref = json_;
       if (ref instanceof java.lang.String) {
@@ -2416,7 +2459,9 @@ public final class ProtoMsg {
     }
     /**
      * <code>string json = 11;</code>
+     * @return The bytes for json.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getJsonBytes() {
       java.lang.Object ref = json_;
@@ -2448,10 +2493,10 @@ public final class ProtoMsg {
       if (msgId_ != 0L) {
         output.writeUInt64(1, msgId_);
       }
-      if (!getFromBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(from_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, from_);
       }
-      if (!getToBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(to_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, to_);
       }
       if (time_ != 0L) {
@@ -2460,22 +2505,22 @@ public final class ProtoMsg {
       if (msgType_ != 0) {
         output.writeUInt32(5, msgType_);
       }
-      if (!getContentBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(content_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, content_);
       }
-      if (!getUrlBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(url_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, url_);
       }
-      if (!getPropertyBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(property_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 9, property_);
       }
-      if (!getFromNickBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fromNick_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 10, fromNick_);
       }
-      if (!getJsonBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(json_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 11, json_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2488,10 +2533,10 @@ public final class ProtoMsg {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(1, msgId_);
       }
-      if (!getFromBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(from_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, from_);
       }
-      if (!getToBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(to_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, to_);
       }
       if (time_ != 0L) {
@@ -2502,22 +2547,22 @@ public final class ProtoMsg {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(5, msgType_);
       }
-      if (!getContentBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(content_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, content_);
       }
-      if (!getUrlBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(url_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, url_);
       }
-      if (!getPropertyBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(property_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, property_);
       }
-      if (!getFromNickBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fromNick_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, fromNick_);
       }
-      if (!getJsonBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(json_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, json_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2532,29 +2577,28 @@ public final class ProtoMsg {
       }
       com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest other = (com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest) obj;
 
-      boolean result = true;
-      result = result && (getMsgId()
-          == other.getMsgId());
-      result = result && getFrom()
-          .equals(other.getFrom());
-      result = result && getTo()
-          .equals(other.getTo());
-      result = result && (getTime()
-          == other.getTime());
-      result = result && (getMsgType()
-          == other.getMsgType());
-      result = result && getContent()
-          .equals(other.getContent());
-      result = result && getUrl()
-          .equals(other.getUrl());
-      result = result && getProperty()
-          .equals(other.getProperty());
-      result = result && getFromNick()
-          .equals(other.getFromNick());
-      result = result && getJson()
-          .equals(other.getJson());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (getMsgId()
+          != other.getMsgId()) return false;
+      if (!getFrom()
+          .equals(other.getFrom())) return false;
+      if (!getTo()
+          .equals(other.getTo())) return false;
+      if (getTime()
+          != other.getTime()) return false;
+      if (getMsgType()
+          != other.getMsgType()) return false;
+      if (!getContent()
+          .equals(other.getContent())) return false;
+      if (!getUrl()
+          .equals(other.getUrl())) return false;
+      if (!getProperty()
+          .equals(other.getProperty())) return false;
+      if (!getFromNick()
+          .equals(other.getFromNick())) return false;
+      if (!getJson()
+          .equals(other.getJson())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -2586,7 +2630,7 @@ public final class ProtoMsg {
       hash = (53 * hash) + getFromNick().hashCode();
       hash = (37 * hash) + JSON_FIELD_NUMBER;
       hash = (53 * hash) + getJson().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2635,11 +2679,13 @@ public final class ProtoMsg {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
+
     public static com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
+
     public static com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2703,42 +2749,28 @@ public final class ProtoMsg {
 
       // Construct using com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         msgId_ = 0L;
-
         from_ = "";
-
         to_ = "";
-
         time_ = 0L;
-
         msgType_ = 0;
-
         content_ = "";
-
         url_ = "";
-
         property_ = "";
-
         fromNick_ = "";
-
         json_ = "";
-
         return this;
       }
 
@@ -2765,51 +2797,76 @@ public final class ProtoMsg {
       @java.lang.Override
       public com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest buildPartial() {
         com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest result = new com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest(this);
-        result.msgId_ = msgId_;
-        result.from_ = from_;
-        result.to_ = to_;
-        result.time_ = time_;
-        result.msgType_ = msgType_;
-        result.content_ = content_;
-        result.url_ = url_;
-        result.property_ = property_;
-        result.fromNick_ = fromNick_;
-        result.json_ = json_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
+      private void buildPartial0(com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.msgId_ = msgId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.from_ = from_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.to_ = to_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.time_ = time_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.msgType_ = msgType_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.content_ = content_;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.url_ = url_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.property_ = property_;
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.fromNick_ = fromNick_;
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.json_ = json_;
+        }
+      }
+
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -2828,10 +2885,12 @@ public final class ProtoMsg {
         }
         if (!other.getFrom().isEmpty()) {
           from_ = other.from_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getTo().isEmpty()) {
           to_ = other.to_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (other.getTime() != 0L) {
@@ -2842,25 +2901,30 @@ public final class ProtoMsg {
         }
         if (!other.getContent().isEmpty()) {
           content_ = other.content_;
+          bitField0_ |= 0x00000020;
           onChanged();
         }
         if (!other.getUrl().isEmpty()) {
           url_ = other.url_;
+          bitField0_ |= 0x00000040;
           onChanged();
         }
         if (!other.getProperty().isEmpty()) {
           property_ = other.property_;
+          bitField0_ |= 0x00000080;
           onChanged();
         }
         if (!other.getFromNick().isEmpty()) {
           fromNick_ = other.fromNick_;
+          bitField0_ |= 0x00000100;
           onChanged();
         }
         if (!other.getJson().isEmpty()) {
           json_ = other.json_;
+          bitField0_ |= 0x00000200;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2875,41 +2939,111 @@ public final class ProtoMsg {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                msgId_ = input.readUInt64();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                from_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                to_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 32: {
+                time_ = input.readUInt64();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 40: {
+                msgType_ = input.readUInt32();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              case 50: {
+                content_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              case 66: {
+                url_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 66
+              case 74: {
+                property_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 74
+              case 82: {
+                fromNick_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 82
+              case 90: {
+                json_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 90
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private long msgId_ ;
       /**
        * <code>uint64 msg_id = 1;</code>
+       * @return The msgId.
        */
+      @java.lang.Override
       public long getMsgId() {
         return msgId_;
       }
       /**
        * <code>uint64 msg_id = 1;</code>
+       * @param value The msgId to set.
+       * @return This builder for chaining.
        */
       public Builder setMsgId(long value) {
-        
+
         msgId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
        * <code>uint64 msg_id = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearMsgId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         msgId_ = 0L;
         onChanged();
         return this;
@@ -2918,6 +3052,7 @@ public final class ProtoMsg {
       private java.lang.Object from_ = "";
       /**
        * <code>string from = 2;</code>
+       * @return The from.
        */
       public java.lang.String getFrom() {
         java.lang.Object ref = from_;
@@ -2933,6 +3068,7 @@ public final class ProtoMsg {
       }
       /**
        * <code>string from = 2;</code>
+       * @return The bytes for from.
        */
       public com.google.protobuf.ByteString
           getFromBytes() {
@@ -2949,37 +3085,38 @@ public final class ProtoMsg {
       }
       /**
        * <code>string from = 2;</code>
+       * @param value The from to set.
+       * @return This builder for chaining.
        */
       public Builder setFrom(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         from_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
        * <code>string from = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearFrom() {
-        
         from_ = getDefaultInstance().getFrom();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
       /**
        * <code>string from = 2;</code>
+       * @param value The bytes for from to set.
+       * @return This builder for chaining.
        */
       public Builder setFromBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         from_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2987,6 +3124,7 @@ public final class ProtoMsg {
       private java.lang.Object to_ = "";
       /**
        * <code>string to = 3;</code>
+       * @return The to.
        */
       public java.lang.String getTo() {
         java.lang.Object ref = to_;
@@ -3002,6 +3140,7 @@ public final class ProtoMsg {
       }
       /**
        * <code>string to = 3;</code>
+       * @return The bytes for to.
        */
       public com.google.protobuf.ByteString
           getToBytes() {
@@ -3018,37 +3157,38 @@ public final class ProtoMsg {
       }
       /**
        * <code>string to = 3;</code>
+       * @param value The to to set.
+       * @return This builder for chaining.
        */
       public Builder setTo(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         to_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
        * <code>string to = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTo() {
-        
         to_ = getDefaultInstance().getTo();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
       /**
        * <code>string to = 3;</code>
+       * @param value The bytes for to to set.
+       * @return This builder for chaining.
        */
       public Builder setToBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         to_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -3056,24 +3196,30 @@ public final class ProtoMsg {
       private long time_ ;
       /**
        * <code>uint64 time = 4;</code>
+       * @return The time.
        */
+      @java.lang.Override
       public long getTime() {
         return time_;
       }
       /**
        * <code>uint64 time = 4;</code>
+       * @param value The time to set.
+       * @return This builder for chaining.
        */
       public Builder setTime(long value) {
-        
+
         time_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
       /**
        * <code>uint64 time = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTime() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         time_ = 0L;
         onChanged();
         return this;
@@ -3082,24 +3228,30 @@ public final class ProtoMsg {
       private int msgType_ ;
       /**
        * <code>uint32 msg_type = 5;</code>
+       * @return The msgType.
        */
+      @java.lang.Override
       public int getMsgType() {
         return msgType_;
       }
       /**
        * <code>uint32 msg_type = 5;</code>
+       * @param value The msgType to set.
+       * @return This builder for chaining.
        */
       public Builder setMsgType(int value) {
-        
+
         msgType_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
       /**
        * <code>uint32 msg_type = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearMsgType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         msgType_ = 0;
         onChanged();
         return this;
@@ -3108,6 +3260,7 @@ public final class ProtoMsg {
       private java.lang.Object content_ = "";
       /**
        * <code>string content = 6;</code>
+       * @return The content.
        */
       public java.lang.String getContent() {
         java.lang.Object ref = content_;
@@ -3123,6 +3276,7 @@ public final class ProtoMsg {
       }
       /**
        * <code>string content = 6;</code>
+       * @return The bytes for content.
        */
       public com.google.protobuf.ByteString
           getContentBytes() {
@@ -3139,37 +3293,38 @@ public final class ProtoMsg {
       }
       /**
        * <code>string content = 6;</code>
+       * @param value The content to set.
+       * @return This builder for chaining.
        */
       public Builder setContent(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         content_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
       /**
        * <code>string content = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearContent() {
-        
         content_ = getDefaultInstance().getContent();
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
       /**
        * <code>string content = 6;</code>
+       * @param value The bytes for content to set.
+       * @return This builder for chaining.
        */
       public Builder setContentBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         content_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -3177,6 +3332,7 @@ public final class ProtoMsg {
       private java.lang.Object url_ = "";
       /**
        * <code>string url = 8;</code>
+       * @return The url.
        */
       public java.lang.String getUrl() {
         java.lang.Object ref = url_;
@@ -3192,6 +3348,7 @@ public final class ProtoMsg {
       }
       /**
        * <code>string url = 8;</code>
+       * @return The bytes for url.
        */
       public com.google.protobuf.ByteString
           getUrlBytes() {
@@ -3208,37 +3365,38 @@ public final class ProtoMsg {
       }
       /**
        * <code>string url = 8;</code>
+       * @param value The url to set.
+       * @return This builder for chaining.
        */
       public Builder setUrl(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         url_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
       /**
        * <code>string url = 8;</code>
+       * @return This builder for chaining.
        */
       public Builder clearUrl() {
-        
         url_ = getDefaultInstance().getUrl();
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
         return this;
       }
       /**
        * <code>string url = 8;</code>
+       * @param value The bytes for url to set.
+       * @return This builder for chaining.
        */
       public Builder setUrlBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         url_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -3246,6 +3404,7 @@ public final class ProtoMsg {
       private java.lang.Object property_ = "";
       /**
        * <code>string property = 9;</code>
+       * @return The property.
        */
       public java.lang.String getProperty() {
         java.lang.Object ref = property_;
@@ -3261,6 +3420,7 @@ public final class ProtoMsg {
       }
       /**
        * <code>string property = 9;</code>
+       * @return The bytes for property.
        */
       public com.google.protobuf.ByteString
           getPropertyBytes() {
@@ -3277,37 +3437,38 @@ public final class ProtoMsg {
       }
       /**
        * <code>string property = 9;</code>
+       * @param value The property to set.
+       * @return This builder for chaining.
        */
       public Builder setProperty(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         property_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
       /**
        * <code>string property = 9;</code>
+       * @return This builder for chaining.
        */
       public Builder clearProperty() {
-        
         property_ = getDefaultInstance().getProperty();
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
         return this;
       }
       /**
        * <code>string property = 9;</code>
+       * @param value The bytes for property to set.
+       * @return This builder for chaining.
        */
       public Builder setPropertyBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         property_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -3315,6 +3476,7 @@ public final class ProtoMsg {
       private java.lang.Object fromNick_ = "";
       /**
        * <code>string from_nick = 10;</code>
+       * @return The fromNick.
        */
       public java.lang.String getFromNick() {
         java.lang.Object ref = fromNick_;
@@ -3330,6 +3492,7 @@ public final class ProtoMsg {
       }
       /**
        * <code>string from_nick = 10;</code>
+       * @return The bytes for fromNick.
        */
       public com.google.protobuf.ByteString
           getFromNickBytes() {
@@ -3346,37 +3509,38 @@ public final class ProtoMsg {
       }
       /**
        * <code>string from_nick = 10;</code>
+       * @param value The fromNick to set.
+       * @return This builder for chaining.
        */
       public Builder setFromNick(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         fromNick_ = value;
+        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
       /**
        * <code>string from_nick = 10;</code>
+       * @return This builder for chaining.
        */
       public Builder clearFromNick() {
-        
         fromNick_ = getDefaultInstance().getFromNick();
+        bitField0_ = (bitField0_ & ~0x00000100);
         onChanged();
         return this;
       }
       /**
        * <code>string from_nick = 10;</code>
+       * @param value The bytes for fromNick to set.
+       * @return This builder for chaining.
        */
       public Builder setFromNickBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         fromNick_ = value;
+        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
@@ -3384,6 +3548,7 @@ public final class ProtoMsg {
       private java.lang.Object json_ = "";
       /**
        * <code>string json = 11;</code>
+       * @return The json.
        */
       public java.lang.String getJson() {
         java.lang.Object ref = json_;
@@ -3399,6 +3564,7 @@ public final class ProtoMsg {
       }
       /**
        * <code>string json = 11;</code>
+       * @return The bytes for json.
        */
       public com.google.protobuf.ByteString
           getJsonBytes() {
@@ -3415,44 +3581,45 @@ public final class ProtoMsg {
       }
       /**
        * <code>string json = 11;</code>
+       * @param value The json to set.
+       * @return This builder for chaining.
        */
       public Builder setJson(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         json_ = value;
+        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
       /**
        * <code>string json = 11;</code>
+       * @return This builder for chaining.
        */
       public Builder clearJson() {
-        
         json_ = getDefaultInstance().getJson();
+        bitField0_ = (bitField0_ & ~0x00000200);
         onChanged();
         return this;
       }
       /**
        * <code>string json = 11;</code>
+       * @param value The bytes for json to set.
+       * @return This builder for chaining.
        */
       public Builder setJsonBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         json_ = value;
+        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -3482,7 +3649,18 @@ public final class ProtoMsg {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MessageRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3508,43 +3686,50 @@ public final class ProtoMsg {
 
     /**
      * <code>bool result = 1;</code>
+     * @return The result.
      */
     boolean getResult();
 
     /**
      * <code>uint32 code = 2;</code>
+     * @return The code.
      */
     int getCode();
 
     /**
      * <code>string info = 3;</code>
+     * @return The info.
      */
     java.lang.String getInfo();
     /**
      * <code>string info = 3;</code>
+     * @return The bytes for info.
      */
     com.google.protobuf.ByteString
         getInfoBytes();
 
     /**
      * <code>uint32 expose = 4;</code>
+     * @return The expose.
      */
     int getExpose();
 
     /**
      * <code>bool last_block = 5;</code>
+     * @return The lastBlock.
      */
     boolean getLastBlock();
 
     /**
      * <code>fixed32 block_index = 6;</code>
+     * @return The blockIndex.
      */
     int getBlockIndex();
   }
   /**
    * Protobuf type {@code com.crazymakercircle.im.common.bean.msg.MessageResponse}
    */
-  public  static final class MessageResponse extends
+  public static final class MessageResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.crazymakercircle.im.common.bean.msg.MessageResponse)
       MessageResponseOrBuilder {
@@ -3554,88 +3739,16 @@ public final class ProtoMsg {
       super(builder);
     }
     private MessageResponse() {
-      result_ = false;
-      code_ = 0;
       info_ = "";
-      expose_ = 0;
-      lastBlock_ = false;
-      blockIndex_ = 0;
     }
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MessageResponse();
     }
-    private MessageResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
 
-              result_ = input.readBool();
-              break;
-            }
-            case 16: {
-
-              code_ = input.readUInt32();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              info_ = s;
-              break;
-            }
-            case 32: {
-
-              expose_ = input.readUInt32();
-              break;
-            }
-            case 40: {
-
-              lastBlock_ = input.readBool();
-              break;
-            }
-            case 53: {
-
-              blockIndex_ = input.readFixed32();
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.crazymakercircle.im.common.bean.msg.ProtoMsg.internal_static_com_crazymakercircle_im_common_bean_msg_MessageResponse_descriptor;
@@ -3650,28 +3763,35 @@ public final class ProtoMsg {
     }
 
     public static final int RESULT_FIELD_NUMBER = 1;
-    private boolean result_;
+    private boolean result_ = false;
     /**
      * <code>bool result = 1;</code>
+     * @return The result.
      */
+    @java.lang.Override
     public boolean getResult() {
       return result_;
     }
 
     public static final int CODE_FIELD_NUMBER = 2;
-    private int code_;
+    private int code_ = 0;
     /**
      * <code>uint32 code = 2;</code>
+     * @return The code.
      */
+    @java.lang.Override
     public int getCode() {
       return code_;
     }
 
     public static final int INFO_FIELD_NUMBER = 3;
-    private volatile java.lang.Object info_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object info_ = "";
     /**
      * <code>string info = 3;</code>
+     * @return The info.
      */
+    @java.lang.Override
     public java.lang.String getInfo() {
       java.lang.Object ref = info_;
       if (ref instanceof java.lang.String) {
@@ -3686,7 +3806,9 @@ public final class ProtoMsg {
     }
     /**
      * <code>string info = 3;</code>
+     * @return The bytes for info.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getInfoBytes() {
       java.lang.Object ref = info_;
@@ -3702,28 +3824,34 @@ public final class ProtoMsg {
     }
 
     public static final int EXPOSE_FIELD_NUMBER = 4;
-    private int expose_;
+    private int expose_ = 0;
     /**
      * <code>uint32 expose = 4;</code>
+     * @return The expose.
      */
+    @java.lang.Override
     public int getExpose() {
       return expose_;
     }
 
     public static final int LAST_BLOCK_FIELD_NUMBER = 5;
-    private boolean lastBlock_;
+    private boolean lastBlock_ = false;
     /**
      * <code>bool last_block = 5;</code>
+     * @return The lastBlock.
      */
+    @java.lang.Override
     public boolean getLastBlock() {
       return lastBlock_;
     }
 
     public static final int BLOCK_INDEX_FIELD_NUMBER = 6;
-    private int blockIndex_;
+    private int blockIndex_ = 0;
     /**
      * <code>fixed32 block_index = 6;</code>
+     * @return The blockIndex.
      */
+    @java.lang.Override
     public int getBlockIndex() {
       return blockIndex_;
     }
@@ -3748,7 +3876,7 @@ public final class ProtoMsg {
       if (code_ != 0) {
         output.writeUInt32(2, code_);
       }
-      if (!getInfoBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(info_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, info_);
       }
       if (expose_ != 0) {
@@ -3760,7 +3888,7 @@ public final class ProtoMsg {
       if (blockIndex_ != 0) {
         output.writeFixed32(6, blockIndex_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3777,7 +3905,7 @@ public final class ProtoMsg {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(2, code_);
       }
-      if (!getInfoBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(info_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, info_);
       }
       if (expose_ != 0) {
@@ -3792,7 +3920,7 @@ public final class ProtoMsg {
         size += com.google.protobuf.CodedOutputStream
           .computeFixed32Size(6, blockIndex_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3807,21 +3935,20 @@ public final class ProtoMsg {
       }
       com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse other = (com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse) obj;
 
-      boolean result = true;
-      result = result && (getResult()
-          == other.getResult());
-      result = result && (getCode()
-          == other.getCode());
-      result = result && getInfo()
-          .equals(other.getInfo());
-      result = result && (getExpose()
-          == other.getExpose());
-      result = result && (getLastBlock()
-          == other.getLastBlock());
-      result = result && (getBlockIndex()
-          == other.getBlockIndex());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (getResult()
+          != other.getResult()) return false;
+      if (getCode()
+          != other.getCode()) return false;
+      if (!getInfo()
+          .equals(other.getInfo())) return false;
+      if (getExpose()
+          != other.getExpose()) return false;
+      if (getLastBlock()
+          != other.getLastBlock()) return false;
+      if (getBlockIndex()
+          != other.getBlockIndex()) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -3845,7 +3972,7 @@ public final class ProtoMsg {
           getLastBlock());
       hash = (37 * hash) + BLOCK_INDEX_FIELD_NUMBER;
       hash = (53 * hash) + getBlockIndex();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3894,11 +4021,13 @@ public final class ProtoMsg {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
+
     public static com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
+
     public static com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3962,34 +4091,24 @@ public final class ProtoMsg {
 
       // Construct using com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         result_ = false;
-
         code_ = 0;
-
         info_ = "";
-
         expose_ = 0;
-
         lastBlock_ = false;
-
         blockIndex_ = 0;
-
         return this;
       }
 
@@ -4016,47 +4135,64 @@ public final class ProtoMsg {
       @java.lang.Override
       public com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse buildPartial() {
         com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse result = new com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse(this);
-        result.result_ = result_;
-        result.code_ = code_;
-        result.info_ = info_;
-        result.expose_ = expose_;
-        result.lastBlock_ = lastBlock_;
-        result.blockIndex_ = blockIndex_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
+      private void buildPartial0(com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.result_ = result_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.code_ = code_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.info_ = info_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.expose_ = expose_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.lastBlock_ = lastBlock_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.blockIndex_ = blockIndex_;
+        }
+      }
+
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -4078,6 +4214,7 @@ public final class ProtoMsg {
         }
         if (!other.getInfo().isEmpty()) {
           info_ = other.info_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (other.getExpose() != 0) {
@@ -4089,7 +4226,7 @@ public final class ProtoMsg {
         if (other.getBlockIndex() != 0) {
           setBlockIndex(other.getBlockIndex());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4104,41 +4241,91 @@ public final class ProtoMsg {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                result_ = input.readBool();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                code_ = input.readUInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                info_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 32: {
+                expose_ = input.readUInt32();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 40: {
+                lastBlock_ = input.readBool();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              case 53: {
+                blockIndex_ = input.readFixed32();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 53
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private boolean result_ ;
       /**
        * <code>bool result = 1;</code>
+       * @return The result.
        */
+      @java.lang.Override
       public boolean getResult() {
         return result_;
       }
       /**
        * <code>bool result = 1;</code>
+       * @param value The result to set.
+       * @return This builder for chaining.
        */
       public Builder setResult(boolean value) {
-        
+
         result_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
        * <code>bool result = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearResult() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         result_ = false;
         onChanged();
         return this;
@@ -4147,24 +4334,30 @@ public final class ProtoMsg {
       private int code_ ;
       /**
        * <code>uint32 code = 2;</code>
+       * @return The code.
        */
+      @java.lang.Override
       public int getCode() {
         return code_;
       }
       /**
        * <code>uint32 code = 2;</code>
+       * @param value The code to set.
+       * @return This builder for chaining.
        */
       public Builder setCode(int value) {
-        
+
         code_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
        * <code>uint32 code = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearCode() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         code_ = 0;
         onChanged();
         return this;
@@ -4173,6 +4366,7 @@ public final class ProtoMsg {
       private java.lang.Object info_ = "";
       /**
        * <code>string info = 3;</code>
+       * @return The info.
        */
       public java.lang.String getInfo() {
         java.lang.Object ref = info_;
@@ -4188,6 +4382,7 @@ public final class ProtoMsg {
       }
       /**
        * <code>string info = 3;</code>
+       * @return The bytes for info.
        */
       public com.google.protobuf.ByteString
           getInfoBytes() {
@@ -4204,37 +4399,38 @@ public final class ProtoMsg {
       }
       /**
        * <code>string info = 3;</code>
+       * @param value The info to set.
+       * @return This builder for chaining.
        */
       public Builder setInfo(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         info_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
        * <code>string info = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearInfo() {
-        
         info_ = getDefaultInstance().getInfo();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
       /**
        * <code>string info = 3;</code>
+       * @param value The bytes for info to set.
+       * @return This builder for chaining.
        */
       public Builder setInfoBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         info_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -4242,24 +4438,30 @@ public final class ProtoMsg {
       private int expose_ ;
       /**
        * <code>uint32 expose = 4;</code>
+       * @return The expose.
        */
+      @java.lang.Override
       public int getExpose() {
         return expose_;
       }
       /**
        * <code>uint32 expose = 4;</code>
+       * @param value The expose to set.
+       * @return This builder for chaining.
        */
       public Builder setExpose(int value) {
-        
+
         expose_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
       /**
        * <code>uint32 expose = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearExpose() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         expose_ = 0;
         onChanged();
         return this;
@@ -4268,24 +4470,30 @@ public final class ProtoMsg {
       private boolean lastBlock_ ;
       /**
        * <code>bool last_block = 5;</code>
+       * @return The lastBlock.
        */
+      @java.lang.Override
       public boolean getLastBlock() {
         return lastBlock_;
       }
       /**
        * <code>bool last_block = 5;</code>
+       * @param value The lastBlock to set.
+       * @return This builder for chaining.
        */
       public Builder setLastBlock(boolean value) {
-        
+
         lastBlock_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
       /**
        * <code>bool last_block = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearLastBlock() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         lastBlock_ = false;
         onChanged();
         return this;
@@ -4294,24 +4502,30 @@ public final class ProtoMsg {
       private int blockIndex_ ;
       /**
        * <code>fixed32 block_index = 6;</code>
+       * @return The blockIndex.
        */
+      @java.lang.Override
       public int getBlockIndex() {
         return blockIndex_;
       }
       /**
        * <code>fixed32 block_index = 6;</code>
+       * @param value The blockIndex to set.
+       * @return This builder for chaining.
        */
       public Builder setBlockIndex(int value) {
-        
+
         blockIndex_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
       /**
        * <code>fixed32 block_index = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearBlockIndex() {
-        
+        bitField0_ = (bitField0_ & ~0x00000020);
         blockIndex_ = 0;
         onChanged();
         return this;
@@ -4319,7 +4533,7 @@ public final class ProtoMsg {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -4349,7 +4563,18 @@ public final class ProtoMsg {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MessageResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4375,30 +4600,36 @@ public final class ProtoMsg {
 
     /**
      * <code>uint32 msg_type = 1;</code>
+     * @return The msgType.
      */
     int getMsgType();
 
     /**
      * <code>bytes sender = 2;</code>
+     * @return The sender.
      */
     com.google.protobuf.ByteString getSender();
 
     /**
      * <code>string json = 3;</code>
+     * @return The json.
      */
     java.lang.String getJson();
     /**
      * <code>string json = 3;</code>
+     * @return The bytes for json.
      */
     com.google.protobuf.ByteString
         getJsonBytes();
 
     /**
      * <code>string timestamp = 4;</code>
+     * @return The timestamp.
      */
     java.lang.String getTimestamp();
     /**
      * <code>string timestamp = 4;</code>
+     * @return The bytes for timestamp.
      */
     com.google.protobuf.ByteString
         getTimestampBytes();
@@ -4406,7 +4637,7 @@ public final class ProtoMsg {
   /**
    * Protobuf type {@code com.crazymakercircle.im.common.bean.msg.MessageNotification}
    */
-  public  static final class MessageNotification extends
+  public static final class MessageNotification extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.crazymakercircle.im.common.bean.msg.MessageNotification)
       MessageNotificationOrBuilder {
@@ -4416,77 +4647,18 @@ public final class ProtoMsg {
       super(builder);
     }
     private MessageNotification() {
-      msgType_ = 0;
       sender_ = com.google.protobuf.ByteString.EMPTY;
       json_ = "";
       timestamp_ = "";
     }
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MessageNotification();
     }
-    private MessageNotification(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
 
-              msgType_ = input.readUInt32();
-              break;
-            }
-            case 18: {
-
-              sender_ = input.readBytes();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              json_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              timestamp_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.crazymakercircle.im.common.bean.msg.ProtoMsg.internal_static_com_crazymakercircle_im_common_bean_msg_MessageNotification_descriptor;
@@ -4501,28 +4673,35 @@ public final class ProtoMsg {
     }
 
     public static final int MSG_TYPE_FIELD_NUMBER = 1;
-    private int msgType_;
+    private int msgType_ = 0;
     /**
      * <code>uint32 msg_type = 1;</code>
+     * @return The msgType.
      */
+    @java.lang.Override
     public int getMsgType() {
       return msgType_;
     }
 
     public static final int SENDER_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString sender_;
+    private com.google.protobuf.ByteString sender_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <code>bytes sender = 2;</code>
+     * @return The sender.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString getSender() {
       return sender_;
     }
 
     public static final int JSON_FIELD_NUMBER = 3;
-    private volatile java.lang.Object json_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object json_ = "";
     /**
      * <code>string json = 3;</code>
+     * @return The json.
      */
+    @java.lang.Override
     public java.lang.String getJson() {
       java.lang.Object ref = json_;
       if (ref instanceof java.lang.String) {
@@ -4537,7 +4716,9 @@ public final class ProtoMsg {
     }
     /**
      * <code>string json = 3;</code>
+     * @return The bytes for json.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getJsonBytes() {
       java.lang.Object ref = json_;
@@ -4553,10 +4734,13 @@ public final class ProtoMsg {
     }
 
     public static final int TIMESTAMP_FIELD_NUMBER = 4;
-    private volatile java.lang.Object timestamp_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object timestamp_ = "";
     /**
      * <code>string timestamp = 4;</code>
+     * @return The timestamp.
      */
+    @java.lang.Override
     public java.lang.String getTimestamp() {
       java.lang.Object ref = timestamp_;
       if (ref instanceof java.lang.String) {
@@ -4571,7 +4755,9 @@ public final class ProtoMsg {
     }
     /**
      * <code>string timestamp = 4;</code>
+     * @return The bytes for timestamp.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getTimestampBytes() {
       java.lang.Object ref = timestamp_;
@@ -4606,13 +4792,13 @@ public final class ProtoMsg {
       if (!sender_.isEmpty()) {
         output.writeBytes(2, sender_);
       }
-      if (!getJsonBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(json_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, json_);
       }
-      if (!getTimestampBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timestamp_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, timestamp_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4629,13 +4815,13 @@ public final class ProtoMsg {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, sender_);
       }
-      if (!getJsonBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(json_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, json_);
       }
-      if (!getTimestampBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timestamp_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, timestamp_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4650,17 +4836,16 @@ public final class ProtoMsg {
       }
       com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification other = (com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification) obj;
 
-      boolean result = true;
-      result = result && (getMsgType()
-          == other.getMsgType());
-      result = result && getSender()
-          .equals(other.getSender());
-      result = result && getJson()
-          .equals(other.getJson());
-      result = result && getTimestamp()
-          .equals(other.getTimestamp());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (getMsgType()
+          != other.getMsgType()) return false;
+      if (!getSender()
+          .equals(other.getSender())) return false;
+      if (!getJson()
+          .equals(other.getJson())) return false;
+      if (!getTimestamp()
+          .equals(other.getTimestamp())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -4678,7 +4863,7 @@ public final class ProtoMsg {
       hash = (53 * hash) + getJson().hashCode();
       hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
       hash = (53 * hash) + getTimestamp().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4727,11 +4912,13 @@ public final class ProtoMsg {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
+
     public static com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
+
     public static com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4795,30 +4982,22 @@ public final class ProtoMsg {
 
       // Construct using com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         msgType_ = 0;
-
         sender_ = com.google.protobuf.ByteString.EMPTY;
-
         json_ = "";
-
         timestamp_ = "";
-
         return this;
       }
 
@@ -4845,45 +5024,58 @@ public final class ProtoMsg {
       @java.lang.Override
       public com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification buildPartial() {
         com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification result = new com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification(this);
-        result.msgType_ = msgType_;
-        result.sender_ = sender_;
-        result.json_ = json_;
-        result.timestamp_ = timestamp_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
+      private void buildPartial0(com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.msgType_ = msgType_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.sender_ = sender_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.json_ = json_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.timestamp_ = timestamp_;
+        }
+      }
+
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -4905,13 +5097,15 @@ public final class ProtoMsg {
         }
         if (!other.getJson().isEmpty()) {
           json_ = other.json_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getTimestamp().isEmpty()) {
           timestamp_ = other.timestamp_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4926,41 +5120,81 @@ public final class ProtoMsg {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                msgType_ = input.readUInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                sender_ = input.readBytes();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                json_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                timestamp_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int msgType_ ;
       /**
        * <code>uint32 msg_type = 1;</code>
+       * @return The msgType.
        */
+      @java.lang.Override
       public int getMsgType() {
         return msgType_;
       }
       /**
        * <code>uint32 msg_type = 1;</code>
+       * @param value The msgType to set.
+       * @return This builder for chaining.
        */
       public Builder setMsgType(int value) {
-        
+
         msgType_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
        * <code>uint32 msg_type = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearMsgType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         msgType_ = 0;
         onChanged();
         return this;
@@ -4969,27 +5203,30 @@ public final class ProtoMsg {
       private com.google.protobuf.ByteString sender_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>bytes sender = 2;</code>
+       * @return The sender.
        */
+      @java.lang.Override
       public com.google.protobuf.ByteString getSender() {
         return sender_;
       }
       /**
        * <code>bytes sender = 2;</code>
+       * @param value The sender to set.
+       * @return This builder for chaining.
        */
       public Builder setSender(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         sender_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
        * <code>bytes sender = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearSender() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         sender_ = getDefaultInstance().getSender();
         onChanged();
         return this;
@@ -4998,6 +5235,7 @@ public final class ProtoMsg {
       private java.lang.Object json_ = "";
       /**
        * <code>string json = 3;</code>
+       * @return The json.
        */
       public java.lang.String getJson() {
         java.lang.Object ref = json_;
@@ -5013,6 +5251,7 @@ public final class ProtoMsg {
       }
       /**
        * <code>string json = 3;</code>
+       * @return The bytes for json.
        */
       public com.google.protobuf.ByteString
           getJsonBytes() {
@@ -5029,37 +5268,38 @@ public final class ProtoMsg {
       }
       /**
        * <code>string json = 3;</code>
+       * @param value The json to set.
+       * @return This builder for chaining.
        */
       public Builder setJson(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         json_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
        * <code>string json = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearJson() {
-        
         json_ = getDefaultInstance().getJson();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
       /**
        * <code>string json = 3;</code>
+       * @param value The bytes for json to set.
+       * @return This builder for chaining.
        */
       public Builder setJsonBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         json_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -5067,6 +5307,7 @@ public final class ProtoMsg {
       private java.lang.Object timestamp_ = "";
       /**
        * <code>string timestamp = 4;</code>
+       * @return The timestamp.
        */
       public java.lang.String getTimestamp() {
         java.lang.Object ref = timestamp_;
@@ -5082,6 +5323,7 @@ public final class ProtoMsg {
       }
       /**
        * <code>string timestamp = 4;</code>
+       * @return The bytes for timestamp.
        */
       public com.google.protobuf.ByteString
           getTimestampBytes() {
@@ -5098,44 +5340,45 @@ public final class ProtoMsg {
       }
       /**
        * <code>string timestamp = 4;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
        */
       public Builder setTimestamp(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         timestamp_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
       /**
        * <code>string timestamp = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTimestamp() {
-        
         timestamp_ = getDefaultInstance().getTimestamp();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
       /**
        * <code>string timestamp = 4;</code>
+       * @param value The bytes for timestamp to set.
+       * @return This builder for chaining.
        */
       public Builder setTimestampBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         timestamp_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -5165,7 +5408,18 @@ public final class ProtoMsg {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MessageNotification(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -5191,34 +5445,41 @@ public final class ProtoMsg {
 
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.HeadType type = 1;</code>
+     * @return The enum numeric value on the wire for type.
      */
     int getTypeValue();
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.HeadType type = 1;</code>
+     * @return The type.
      */
     com.crazymakercircle.im.common.bean.msg.ProtoMsg.HeadType getType();
 
     /**
      * <code>uint64 sequence = 2;</code>
+     * @return The sequence.
      */
     long getSequence();
 
     /**
      * <code>string session_id = 3;</code>
+     * @return The sessionId.
      */
     java.lang.String getSessionId();
     /**
      * <code>string session_id = 3;</code>
+     * @return The bytes for sessionId.
      */
     com.google.protobuf.ByteString
         getSessionIdBytes();
 
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.LoginRequest loginRequest = 4;</code>
+     * @return Whether the loginRequest field is set.
      */
     boolean hasLoginRequest();
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.LoginRequest loginRequest = 4;</code>
+     * @return The loginRequest.
      */
     com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest getLoginRequest();
     /**
@@ -5228,10 +5489,12 @@ public final class ProtoMsg {
 
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.LoginResponse loginResponse = 5;</code>
+     * @return Whether the loginResponse field is set.
      */
     boolean hasLoginResponse();
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.LoginResponse loginResponse = 5;</code>
+     * @return The loginResponse.
      */
     com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse getLoginResponse();
     /**
@@ -5241,10 +5504,12 @@ public final class ProtoMsg {
 
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.MessageRequest messageRequest = 6;</code>
+     * @return Whether the messageRequest field is set.
      */
     boolean hasMessageRequest();
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.MessageRequest messageRequest = 6;</code>
+     * @return The messageRequest.
      */
     com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest getMessageRequest();
     /**
@@ -5254,10 +5519,12 @@ public final class ProtoMsg {
 
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.MessageResponse messageResponse = 7;</code>
+     * @return Whether the messageResponse field is set.
      */
     boolean hasMessageResponse();
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.MessageResponse messageResponse = 7;</code>
+     * @return The messageResponse.
      */
     com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse getMessageResponse();
     /**
@@ -5267,10 +5534,12 @@ public final class ProtoMsg {
 
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.MessageNotification notification = 8;</code>
+     * @return Whether the notification field is set.
      */
     boolean hasNotification();
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.MessageNotification notification = 8;</code>
+     * @return The notification.
      */
     com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification getNotification();
     /**
@@ -5281,7 +5550,7 @@ public final class ProtoMsg {
   /**
    * Protobuf type {@code com.crazymakercircle.im.common.bean.msg.Message}
    */
-  public  static final class Message extends
+  public static final class Message extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.crazymakercircle.im.common.bean.msg.Message)
       MessageOrBuilder {
@@ -5292,135 +5561,16 @@ public final class ProtoMsg {
     }
     private Message() {
       type_ = 0;
-      sequence_ = 0L;
       sessionId_ = "";
     }
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Message();
     }
-    private Message(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
 
-              type_ = rawValue;
-              break;
-            }
-            case 16: {
-
-              sequence_ = input.readUInt64();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              sessionId_ = s;
-              break;
-            }
-            case 34: {
-              com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest.Builder subBuilder = null;
-              if (loginRequest_ != null) {
-                subBuilder = loginRequest_.toBuilder();
-              }
-              loginRequest_ = input.readMessage(com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(loginRequest_);
-                loginRequest_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 42: {
-              com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse.Builder subBuilder = null;
-              if (loginResponse_ != null) {
-                subBuilder = loginResponse_.toBuilder();
-              }
-              loginResponse_ = input.readMessage(com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(loginResponse_);
-                loginResponse_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 50: {
-              com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest.Builder subBuilder = null;
-              if (messageRequest_ != null) {
-                subBuilder = messageRequest_.toBuilder();
-              }
-              messageRequest_ = input.readMessage(com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(messageRequest_);
-                messageRequest_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 58: {
-              com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse.Builder subBuilder = null;
-              if (messageResponse_ != null) {
-                subBuilder = messageResponse_.toBuilder();
-              }
-              messageResponse_ = input.readMessage(com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(messageResponse_);
-                messageResponse_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 66: {
-              com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification.Builder subBuilder = null;
-              if (notification_ != null) {
-                subBuilder = notification_.toBuilder();
-              }
-              notification_ = input.readMessage(com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(notification_);
-                notification_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.crazymakercircle.im.common.bean.msg.ProtoMsg.internal_static_com_crazymakercircle_im_common_bean_msg_Message_descriptor;
@@ -5434,37 +5584,44 @@ public final class ProtoMsg {
               com.crazymakercircle.im.common.bean.msg.ProtoMsg.Message.class, com.crazymakercircle.im.common.bean.msg.ProtoMsg.Message.Builder.class);
     }
 
+    private int bitField0_;
     public static final int TYPE_FIELD_NUMBER = 1;
-    private int type_;
+    private int type_ = 0;
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.HeadType type = 1;</code>
+     * @return The enum numeric value on the wire for type.
      */
-    public int getTypeValue() {
+    @java.lang.Override public int getTypeValue() {
       return type_;
     }
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.HeadType type = 1;</code>
+     * @return The type.
      */
-    public com.crazymakercircle.im.common.bean.msg.ProtoMsg.HeadType getType() {
-      @SuppressWarnings("deprecation")
-      com.crazymakercircle.im.common.bean.msg.ProtoMsg.HeadType result = com.crazymakercircle.im.common.bean.msg.ProtoMsg.HeadType.valueOf(type_);
+    @java.lang.Override public com.crazymakercircle.im.common.bean.msg.ProtoMsg.HeadType getType() {
+      com.crazymakercircle.im.common.bean.msg.ProtoMsg.HeadType result = com.crazymakercircle.im.common.bean.msg.ProtoMsg.HeadType.forNumber(type_);
       return result == null ? com.crazymakercircle.im.common.bean.msg.ProtoMsg.HeadType.UNRECOGNIZED : result;
     }
 
     public static final int SEQUENCE_FIELD_NUMBER = 2;
-    private long sequence_;
+    private long sequence_ = 0L;
     /**
      * <code>uint64 sequence = 2;</code>
+     * @return The sequence.
      */
+    @java.lang.Override
     public long getSequence() {
       return sequence_;
     }
 
     public static final int SESSION_ID_FIELD_NUMBER = 3;
-    private volatile java.lang.Object sessionId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object sessionId_ = "";
     /**
      * <code>string session_id = 3;</code>
+     * @return The sessionId.
      */
+    @java.lang.Override
     public java.lang.String getSessionId() {
       java.lang.Object ref = sessionId_;
       if (ref instanceof java.lang.String) {
@@ -5479,7 +5636,9 @@ public final class ProtoMsg {
     }
     /**
      * <code>string session_id = 3;</code>
+     * @return The bytes for sessionId.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getSessionIdBytes() {
       java.lang.Object ref = sessionId_;
@@ -5498,105 +5657,130 @@ public final class ProtoMsg {
     private com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest loginRequest_;
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.LoginRequest loginRequest = 4;</code>
+     * @return Whether the loginRequest field is set.
      */
+    @java.lang.Override
     public boolean hasLoginRequest() {
-      return loginRequest_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.LoginRequest loginRequest = 4;</code>
+     * @return The loginRequest.
      */
+    @java.lang.Override
     public com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest getLoginRequest() {
       return loginRequest_ == null ? com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest.getDefaultInstance() : loginRequest_;
     }
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.LoginRequest loginRequest = 4;</code>
      */
+    @java.lang.Override
     public com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequestOrBuilder getLoginRequestOrBuilder() {
-      return getLoginRequest();
+      return loginRequest_ == null ? com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest.getDefaultInstance() : loginRequest_;
     }
 
     public static final int LOGINRESPONSE_FIELD_NUMBER = 5;
     private com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse loginResponse_;
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.LoginResponse loginResponse = 5;</code>
+     * @return Whether the loginResponse field is set.
      */
+    @java.lang.Override
     public boolean hasLoginResponse() {
-      return loginResponse_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.LoginResponse loginResponse = 5;</code>
+     * @return The loginResponse.
      */
+    @java.lang.Override
     public com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse getLoginResponse() {
       return loginResponse_ == null ? com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse.getDefaultInstance() : loginResponse_;
     }
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.LoginResponse loginResponse = 5;</code>
      */
+    @java.lang.Override
     public com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponseOrBuilder getLoginResponseOrBuilder() {
-      return getLoginResponse();
+      return loginResponse_ == null ? com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse.getDefaultInstance() : loginResponse_;
     }
 
     public static final int MESSAGEREQUEST_FIELD_NUMBER = 6;
     private com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest messageRequest_;
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.MessageRequest messageRequest = 6;</code>
+     * @return Whether the messageRequest field is set.
      */
+    @java.lang.Override
     public boolean hasMessageRequest() {
-      return messageRequest_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.MessageRequest messageRequest = 6;</code>
+     * @return The messageRequest.
      */
+    @java.lang.Override
     public com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest getMessageRequest() {
       return messageRequest_ == null ? com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest.getDefaultInstance() : messageRequest_;
     }
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.MessageRequest messageRequest = 6;</code>
      */
+    @java.lang.Override
     public com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequestOrBuilder getMessageRequestOrBuilder() {
-      return getMessageRequest();
+      return messageRequest_ == null ? com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest.getDefaultInstance() : messageRequest_;
     }
 
     public static final int MESSAGERESPONSE_FIELD_NUMBER = 7;
     private com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse messageResponse_;
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.MessageResponse messageResponse = 7;</code>
+     * @return Whether the messageResponse field is set.
      */
+    @java.lang.Override
     public boolean hasMessageResponse() {
-      return messageResponse_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.MessageResponse messageResponse = 7;</code>
+     * @return The messageResponse.
      */
+    @java.lang.Override
     public com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse getMessageResponse() {
       return messageResponse_ == null ? com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse.getDefaultInstance() : messageResponse_;
     }
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.MessageResponse messageResponse = 7;</code>
      */
+    @java.lang.Override
     public com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponseOrBuilder getMessageResponseOrBuilder() {
-      return getMessageResponse();
+      return messageResponse_ == null ? com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse.getDefaultInstance() : messageResponse_;
     }
 
     public static final int NOTIFICATION_FIELD_NUMBER = 8;
     private com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification notification_;
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.MessageNotification notification = 8;</code>
+     * @return Whether the notification field is set.
      */
+    @java.lang.Override
     public boolean hasNotification() {
-      return notification_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.MessageNotification notification = 8;</code>
+     * @return The notification.
      */
+    @java.lang.Override
     public com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification getNotification() {
       return notification_ == null ? com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification.getDefaultInstance() : notification_;
     }
     /**
      * <code>.com.crazymakercircle.im.common.bean.msg.MessageNotification notification = 8;</code>
      */
+    @java.lang.Override
     public com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotificationOrBuilder getNotificationOrBuilder() {
-      return getNotification();
+      return notification_ == null ? com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification.getDefaultInstance() : notification_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5619,25 +5803,25 @@ public final class ProtoMsg {
       if (sequence_ != 0L) {
         output.writeUInt64(2, sequence_);
       }
-      if (!getSessionIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sessionId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, sessionId_);
       }
-      if (loginRequest_ != null) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeMessage(4, getLoginRequest());
       }
-      if (loginResponse_ != null) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         output.writeMessage(5, getLoginResponse());
       }
-      if (messageRequest_ != null) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         output.writeMessage(6, getMessageRequest());
       }
-      if (messageResponse_ != null) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         output.writeMessage(7, getMessageResponse());
       }
-      if (notification_ != null) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         output.writeMessage(8, getNotification());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -5654,30 +5838,30 @@ public final class ProtoMsg {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(2, sequence_);
       }
-      if (!getSessionIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sessionId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, sessionId_);
       }
-      if (loginRequest_ != null) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getLoginRequest());
       }
-      if (loginResponse_ != null) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getLoginResponse());
       }
-      if (messageRequest_ != null) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(6, getMessageRequest());
       }
-      if (messageResponse_ != null) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, getMessageResponse());
       }
-      if (notification_ != null) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, getNotification());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5692,39 +5876,38 @@ public final class ProtoMsg {
       }
       com.crazymakercircle.im.common.bean.msg.ProtoMsg.Message other = (com.crazymakercircle.im.common.bean.msg.ProtoMsg.Message) obj;
 
-      boolean result = true;
-      result = result && type_ == other.type_;
-      result = result && (getSequence()
-          == other.getSequence());
-      result = result && getSessionId()
-          .equals(other.getSessionId());
-      result = result && (hasLoginRequest() == other.hasLoginRequest());
+      if (type_ != other.type_) return false;
+      if (getSequence()
+          != other.getSequence()) return false;
+      if (!getSessionId()
+          .equals(other.getSessionId())) return false;
+      if (hasLoginRequest() != other.hasLoginRequest()) return false;
       if (hasLoginRequest()) {
-        result = result && getLoginRequest()
-            .equals(other.getLoginRequest());
+        if (!getLoginRequest()
+            .equals(other.getLoginRequest())) return false;
       }
-      result = result && (hasLoginResponse() == other.hasLoginResponse());
+      if (hasLoginResponse() != other.hasLoginResponse()) return false;
       if (hasLoginResponse()) {
-        result = result && getLoginResponse()
-            .equals(other.getLoginResponse());
+        if (!getLoginResponse()
+            .equals(other.getLoginResponse())) return false;
       }
-      result = result && (hasMessageRequest() == other.hasMessageRequest());
+      if (hasMessageRequest() != other.hasMessageRequest()) return false;
       if (hasMessageRequest()) {
-        result = result && getMessageRequest()
-            .equals(other.getMessageRequest());
+        if (!getMessageRequest()
+            .equals(other.getMessageRequest())) return false;
       }
-      result = result && (hasMessageResponse() == other.hasMessageResponse());
+      if (hasMessageResponse() != other.hasMessageResponse()) return false;
       if (hasMessageResponse()) {
-        result = result && getMessageResponse()
-            .equals(other.getMessageResponse());
+        if (!getMessageResponse()
+            .equals(other.getMessageResponse())) return false;
       }
-      result = result && (hasNotification() == other.hasNotification());
+      if (hasNotification() != other.hasNotification()) return false;
       if (hasNotification()) {
-        result = result && getNotification()
-            .equals(other.getNotification());
+        if (!getNotification()
+            .equals(other.getNotification())) return false;
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -5761,7 +5944,7 @@ public final class ProtoMsg {
         hash = (37 * hash) + NOTIFICATION_FIELD_NUMBER;
         hash = (53 * hash) + getNotification().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5810,11 +5993,13 @@ public final class ProtoMsg {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
+
     public static com.crazymakercircle.im.common.bean.msg.ProtoMsg.Message parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
+
     public static com.crazymakercircle.im.common.bean.msg.ProtoMsg.Message parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -5889,45 +6074,43 @@ public final class ProtoMsg {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getLoginRequestFieldBuilder();
+          getLoginResponseFieldBuilder();
+          getMessageRequestFieldBuilder();
+          getMessageResponseFieldBuilder();
+          getNotificationFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         type_ = 0;
-
         sequence_ = 0L;
-
         sessionId_ = "";
-
-        if (loginRequestBuilder_ == null) {
-          loginRequest_ = null;
-        } else {
-          loginRequest_ = null;
+        loginRequest_ = null;
+        if (loginRequestBuilder_ != null) {
+          loginRequestBuilder_.dispose();
           loginRequestBuilder_ = null;
         }
-        if (loginResponseBuilder_ == null) {
-          loginResponse_ = null;
-        } else {
-          loginResponse_ = null;
+        loginResponse_ = null;
+        if (loginResponseBuilder_ != null) {
+          loginResponseBuilder_.dispose();
           loginResponseBuilder_ = null;
         }
-        if (messageRequestBuilder_ == null) {
-          messageRequest_ = null;
-        } else {
-          messageRequest_ = null;
+        messageRequest_ = null;
+        if (messageRequestBuilder_ != null) {
+          messageRequestBuilder_.dispose();
           messageRequestBuilder_ = null;
         }
-        if (messageResponseBuilder_ == null) {
-          messageResponse_ = null;
-        } else {
-          messageResponse_ = null;
+        messageResponse_ = null;
+        if (messageResponseBuilder_ != null) {
+          messageResponseBuilder_.dispose();
           messageResponseBuilder_ = null;
         }
-        if (notificationBuilder_ == null) {
-          notification_ = null;
-        } else {
-          notification_ = null;
+        notification_ = null;
+        if (notificationBuilder_ != null) {
+          notificationBuilder_.dispose();
           notificationBuilder_ = null;
         }
         return this;
@@ -5956,69 +6139,87 @@ public final class ProtoMsg {
       @java.lang.Override
       public com.crazymakercircle.im.common.bean.msg.ProtoMsg.Message buildPartial() {
         com.crazymakercircle.im.common.bean.msg.ProtoMsg.Message result = new com.crazymakercircle.im.common.bean.msg.ProtoMsg.Message(this);
-        result.type_ = type_;
-        result.sequence_ = sequence_;
-        result.sessionId_ = sessionId_;
-        if (loginRequestBuilder_ == null) {
-          result.loginRequest_ = loginRequest_;
-        } else {
-          result.loginRequest_ = loginRequestBuilder_.build();
-        }
-        if (loginResponseBuilder_ == null) {
-          result.loginResponse_ = loginResponse_;
-        } else {
-          result.loginResponse_ = loginResponseBuilder_.build();
-        }
-        if (messageRequestBuilder_ == null) {
-          result.messageRequest_ = messageRequest_;
-        } else {
-          result.messageRequest_ = messageRequestBuilder_.build();
-        }
-        if (messageResponseBuilder_ == null) {
-          result.messageResponse_ = messageResponse_;
-        } else {
-          result.messageResponse_ = messageResponseBuilder_.build();
-        }
-        if (notificationBuilder_ == null) {
-          result.notification_ = notification_;
-        } else {
-          result.notification_ = notificationBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
+      private void buildPartial0(com.crazymakercircle.im.common.bean.msg.ProtoMsg.Message result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.type_ = type_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.sequence_ = sequence_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.sessionId_ = sessionId_;
+        }
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.loginRequest_ = loginRequestBuilder_ == null
+              ? loginRequest_
+              : loginRequestBuilder_.build();
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.loginResponse_ = loginResponseBuilder_ == null
+              ? loginResponse_
+              : loginResponseBuilder_.build();
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.messageRequest_ = messageRequestBuilder_ == null
+              ? messageRequest_
+              : messageRequestBuilder_.build();
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.messageResponse_ = messageResponseBuilder_ == null
+              ? messageResponse_
+              : messageResponseBuilder_.build();
+          to_bitField0_ |= 0x00000008;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.notification_ = notificationBuilder_ == null
+              ? notification_
+              : notificationBuilder_.build();
+          to_bitField0_ |= 0x00000010;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -6040,6 +6241,7 @@ public final class ProtoMsg {
         }
         if (!other.getSessionId().isEmpty()) {
           sessionId_ = other.sessionId_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (other.hasLoginRequest()) {
@@ -6057,7 +6259,7 @@ public final class ProtoMsg {
         if (other.hasNotification()) {
           mergeNotification(other.getNotification());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -6072,60 +6274,132 @@ public final class ProtoMsg {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.crazymakercircle.im.common.bean.msg.ProtoMsg.Message parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                sequence_ = input.readUInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                sessionId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getLoginRequestFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getLoginResponseFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              case 50: {
+                input.readMessage(
+                    getMessageRequestFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              case 58: {
+                input.readMessage(
+                    getMessageResponseFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 58
+              case 66: {
+                input.readMessage(
+                    getNotificationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 66
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.crazymakercircle.im.common.bean.msg.ProtoMsg.Message) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int type_ = 0;
       /**
        * <code>.com.crazymakercircle.im.common.bean.msg.HeadType type = 1;</code>
+       * @return The enum numeric value on the wire for type.
        */
-      public int getTypeValue() {
+      @java.lang.Override public int getTypeValue() {
         return type_;
       }
       /**
        * <code>.com.crazymakercircle.im.common.bean.msg.HeadType type = 1;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
        */
       public Builder setTypeValue(int value) {
         type_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
        * <code>.com.crazymakercircle.im.common.bean.msg.HeadType type = 1;</code>
+       * @return The type.
        */
+      @java.lang.Override
       public com.crazymakercircle.im.common.bean.msg.ProtoMsg.HeadType getType() {
-        @SuppressWarnings("deprecation")
-        com.crazymakercircle.im.common.bean.msg.ProtoMsg.HeadType result = com.crazymakercircle.im.common.bean.msg.ProtoMsg.HeadType.valueOf(type_);
+        com.crazymakercircle.im.common.bean.msg.ProtoMsg.HeadType result = com.crazymakercircle.im.common.bean.msg.ProtoMsg.HeadType.forNumber(type_);
         return result == null ? com.crazymakercircle.im.common.bean.msg.ProtoMsg.HeadType.UNRECOGNIZED : result;
       }
       /**
        * <code>.com.crazymakercircle.im.common.bean.msg.HeadType type = 1;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
        */
       public Builder setType(com.crazymakercircle.im.common.bean.msg.ProtoMsg.HeadType value) {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         type_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
        * <code>.com.crazymakercircle.im.common.bean.msg.HeadType type = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         type_ = 0;
         onChanged();
         return this;
@@ -6134,24 +6408,30 @@ public final class ProtoMsg {
       private long sequence_ ;
       /**
        * <code>uint64 sequence = 2;</code>
+       * @return The sequence.
        */
+      @java.lang.Override
       public long getSequence() {
         return sequence_;
       }
       /**
        * <code>uint64 sequence = 2;</code>
+       * @param value The sequence to set.
+       * @return This builder for chaining.
        */
       public Builder setSequence(long value) {
-        
+
         sequence_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
        * <code>uint64 sequence = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearSequence() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         sequence_ = 0L;
         onChanged();
         return this;
@@ -6160,6 +6440,7 @@ public final class ProtoMsg {
       private java.lang.Object sessionId_ = "";
       /**
        * <code>string session_id = 3;</code>
+       * @return The sessionId.
        */
       public java.lang.String getSessionId() {
         java.lang.Object ref = sessionId_;
@@ -6175,6 +6456,7 @@ public final class ProtoMsg {
       }
       /**
        * <code>string session_id = 3;</code>
+       * @return The bytes for sessionId.
        */
       public com.google.protobuf.ByteString
           getSessionIdBytes() {
@@ -6191,52 +6473,55 @@ public final class ProtoMsg {
       }
       /**
        * <code>string session_id = 3;</code>
+       * @param value The sessionId to set.
+       * @return This builder for chaining.
        */
       public Builder setSessionId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         sessionId_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
        * <code>string session_id = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearSessionId() {
-        
         sessionId_ = getDefaultInstance().getSessionId();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
       /**
        * <code>string session_id = 3;</code>
+       * @param value The bytes for sessionId to set.
+       * @return This builder for chaining.
        */
       public Builder setSessionIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         sessionId_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
 
-      private com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest loginRequest_ = null;
+      private com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest loginRequest_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest, com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest.Builder, com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequestOrBuilder> loginRequestBuilder_;
       /**
        * <code>.com.crazymakercircle.im.common.bean.msg.LoginRequest loginRequest = 4;</code>
+       * @return Whether the loginRequest field is set.
        */
       public boolean hasLoginRequest() {
-        return loginRequestBuilder_ != null || loginRequest_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <code>.com.crazymakercircle.im.common.bean.msg.LoginRequest loginRequest = 4;</code>
+       * @return The loginRequest.
        */
       public com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest getLoginRequest() {
         if (loginRequestBuilder_ == null) {
@@ -6254,11 +6539,11 @@ public final class ProtoMsg {
             throw new NullPointerException();
           }
           loginRequest_ = value;
-          onChanged();
         } else {
           loginRequestBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -6268,11 +6553,11 @@ public final class ProtoMsg {
           com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest.Builder builderForValue) {
         if (loginRequestBuilder_ == null) {
           loginRequest_ = builderForValue.build();
-          onChanged();
         } else {
           loginRequestBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -6280,38 +6565,40 @@ public final class ProtoMsg {
        */
       public Builder mergeLoginRequest(com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest value) {
         if (loginRequestBuilder_ == null) {
-          if (loginRequest_ != null) {
-            loginRequest_ =
-              com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest.newBuilder(loginRequest_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            loginRequest_ != null &&
+            loginRequest_ != com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest.getDefaultInstance()) {
+            getLoginRequestBuilder().mergeFrom(value);
           } else {
             loginRequest_ = value;
           }
-          onChanged();
         } else {
           loginRequestBuilder_.mergeFrom(value);
         }
-
+        if (loginRequest_ != null) {
+          bitField0_ |= 0x00000008;
+          onChanged();
+        }
         return this;
       }
       /**
        * <code>.com.crazymakercircle.im.common.bean.msg.LoginRequest loginRequest = 4;</code>
        */
       public Builder clearLoginRequest() {
-        if (loginRequestBuilder_ == null) {
-          loginRequest_ = null;
-          onChanged();
-        } else {
-          loginRequest_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        loginRequest_ = null;
+        if (loginRequestBuilder_ != null) {
+          loginRequestBuilder_.dispose();
           loginRequestBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.com.crazymakercircle.im.common.bean.msg.LoginRequest loginRequest = 4;</code>
        */
       public com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginRequest.Builder getLoginRequestBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getLoginRequestFieldBuilder().getBuilder();
       }
@@ -6343,17 +6630,19 @@ public final class ProtoMsg {
         return loginRequestBuilder_;
       }
 
-      private com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse loginResponse_ = null;
+      private com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse loginResponse_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse, com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse.Builder, com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponseOrBuilder> loginResponseBuilder_;
       /**
        * <code>.com.crazymakercircle.im.common.bean.msg.LoginResponse loginResponse = 5;</code>
+       * @return Whether the loginResponse field is set.
        */
       public boolean hasLoginResponse() {
-        return loginResponseBuilder_ != null || loginResponse_ != null;
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <code>.com.crazymakercircle.im.common.bean.msg.LoginResponse loginResponse = 5;</code>
+       * @return The loginResponse.
        */
       public com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse getLoginResponse() {
         if (loginResponseBuilder_ == null) {
@@ -6371,11 +6660,11 @@ public final class ProtoMsg {
             throw new NullPointerException();
           }
           loginResponse_ = value;
-          onChanged();
         } else {
           loginResponseBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -6385,11 +6674,11 @@ public final class ProtoMsg {
           com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse.Builder builderForValue) {
         if (loginResponseBuilder_ == null) {
           loginResponse_ = builderForValue.build();
-          onChanged();
         } else {
           loginResponseBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -6397,38 +6686,40 @@ public final class ProtoMsg {
        */
       public Builder mergeLoginResponse(com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse value) {
         if (loginResponseBuilder_ == null) {
-          if (loginResponse_ != null) {
-            loginResponse_ =
-              com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse.newBuilder(loginResponse_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000010) != 0) &&
+            loginResponse_ != null &&
+            loginResponse_ != com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse.getDefaultInstance()) {
+            getLoginResponseBuilder().mergeFrom(value);
           } else {
             loginResponse_ = value;
           }
-          onChanged();
         } else {
           loginResponseBuilder_.mergeFrom(value);
         }
-
+        if (loginResponse_ != null) {
+          bitField0_ |= 0x00000010;
+          onChanged();
+        }
         return this;
       }
       /**
        * <code>.com.crazymakercircle.im.common.bean.msg.LoginResponse loginResponse = 5;</code>
        */
       public Builder clearLoginResponse() {
-        if (loginResponseBuilder_ == null) {
-          loginResponse_ = null;
-          onChanged();
-        } else {
-          loginResponse_ = null;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        loginResponse_ = null;
+        if (loginResponseBuilder_ != null) {
+          loginResponseBuilder_.dispose();
           loginResponseBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.com.crazymakercircle.im.common.bean.msg.LoginResponse loginResponse = 5;</code>
        */
       public com.crazymakercircle.im.common.bean.msg.ProtoMsg.LoginResponse.Builder getLoginResponseBuilder() {
-        
+        bitField0_ |= 0x00000010;
         onChanged();
         return getLoginResponseFieldBuilder().getBuilder();
       }
@@ -6460,17 +6751,19 @@ public final class ProtoMsg {
         return loginResponseBuilder_;
       }
 
-      private com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest messageRequest_ = null;
+      private com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest messageRequest_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest, com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest.Builder, com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequestOrBuilder> messageRequestBuilder_;
       /**
        * <code>.com.crazymakercircle.im.common.bean.msg.MessageRequest messageRequest = 6;</code>
+       * @return Whether the messageRequest field is set.
        */
       public boolean hasMessageRequest() {
-        return messageRequestBuilder_ != null || messageRequest_ != null;
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
        * <code>.com.crazymakercircle.im.common.bean.msg.MessageRequest messageRequest = 6;</code>
+       * @return The messageRequest.
        */
       public com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest getMessageRequest() {
         if (messageRequestBuilder_ == null) {
@@ -6488,11 +6781,11 @@ public final class ProtoMsg {
             throw new NullPointerException();
           }
           messageRequest_ = value;
-          onChanged();
         } else {
           messageRequestBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -6502,11 +6795,11 @@ public final class ProtoMsg {
           com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest.Builder builderForValue) {
         if (messageRequestBuilder_ == null) {
           messageRequest_ = builderForValue.build();
-          onChanged();
         } else {
           messageRequestBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -6514,38 +6807,40 @@ public final class ProtoMsg {
        */
       public Builder mergeMessageRequest(com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest value) {
         if (messageRequestBuilder_ == null) {
-          if (messageRequest_ != null) {
-            messageRequest_ =
-              com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest.newBuilder(messageRequest_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000020) != 0) &&
+            messageRequest_ != null &&
+            messageRequest_ != com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest.getDefaultInstance()) {
+            getMessageRequestBuilder().mergeFrom(value);
           } else {
             messageRequest_ = value;
           }
-          onChanged();
         } else {
           messageRequestBuilder_.mergeFrom(value);
         }
-
+        if (messageRequest_ != null) {
+          bitField0_ |= 0x00000020;
+          onChanged();
+        }
         return this;
       }
       /**
        * <code>.com.crazymakercircle.im.common.bean.msg.MessageRequest messageRequest = 6;</code>
        */
       public Builder clearMessageRequest() {
-        if (messageRequestBuilder_ == null) {
-          messageRequest_ = null;
-          onChanged();
-        } else {
-          messageRequest_ = null;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        messageRequest_ = null;
+        if (messageRequestBuilder_ != null) {
+          messageRequestBuilder_.dispose();
           messageRequestBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.com.crazymakercircle.im.common.bean.msg.MessageRequest messageRequest = 6;</code>
        */
       public com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageRequest.Builder getMessageRequestBuilder() {
-        
+        bitField0_ |= 0x00000020;
         onChanged();
         return getMessageRequestFieldBuilder().getBuilder();
       }
@@ -6577,17 +6872,19 @@ public final class ProtoMsg {
         return messageRequestBuilder_;
       }
 
-      private com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse messageResponse_ = null;
+      private com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse messageResponse_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse, com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse.Builder, com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponseOrBuilder> messageResponseBuilder_;
       /**
        * <code>.com.crazymakercircle.im.common.bean.msg.MessageResponse messageResponse = 7;</code>
+       * @return Whether the messageResponse field is set.
        */
       public boolean hasMessageResponse() {
-        return messageResponseBuilder_ != null || messageResponse_ != null;
+        return ((bitField0_ & 0x00000040) != 0);
       }
       /**
        * <code>.com.crazymakercircle.im.common.bean.msg.MessageResponse messageResponse = 7;</code>
+       * @return The messageResponse.
        */
       public com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse getMessageResponse() {
         if (messageResponseBuilder_ == null) {
@@ -6605,11 +6902,11 @@ public final class ProtoMsg {
             throw new NullPointerException();
           }
           messageResponse_ = value;
-          onChanged();
         } else {
           messageResponseBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000040;
+        onChanged();
         return this;
       }
       /**
@@ -6619,11 +6916,11 @@ public final class ProtoMsg {
           com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse.Builder builderForValue) {
         if (messageResponseBuilder_ == null) {
           messageResponse_ = builderForValue.build();
-          onChanged();
         } else {
           messageResponseBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000040;
+        onChanged();
         return this;
       }
       /**
@@ -6631,38 +6928,40 @@ public final class ProtoMsg {
        */
       public Builder mergeMessageResponse(com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse value) {
         if (messageResponseBuilder_ == null) {
-          if (messageResponse_ != null) {
-            messageResponse_ =
-              com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse.newBuilder(messageResponse_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000040) != 0) &&
+            messageResponse_ != null &&
+            messageResponse_ != com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse.getDefaultInstance()) {
+            getMessageResponseBuilder().mergeFrom(value);
           } else {
             messageResponse_ = value;
           }
-          onChanged();
         } else {
           messageResponseBuilder_.mergeFrom(value);
         }
-
+        if (messageResponse_ != null) {
+          bitField0_ |= 0x00000040;
+          onChanged();
+        }
         return this;
       }
       /**
        * <code>.com.crazymakercircle.im.common.bean.msg.MessageResponse messageResponse = 7;</code>
        */
       public Builder clearMessageResponse() {
-        if (messageResponseBuilder_ == null) {
-          messageResponse_ = null;
-          onChanged();
-        } else {
-          messageResponse_ = null;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        messageResponse_ = null;
+        if (messageResponseBuilder_ != null) {
+          messageResponseBuilder_.dispose();
           messageResponseBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.com.crazymakercircle.im.common.bean.msg.MessageResponse messageResponse = 7;</code>
        */
       public com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageResponse.Builder getMessageResponseBuilder() {
-        
+        bitField0_ |= 0x00000040;
         onChanged();
         return getMessageResponseFieldBuilder().getBuilder();
       }
@@ -6694,17 +6993,19 @@ public final class ProtoMsg {
         return messageResponseBuilder_;
       }
 
-      private com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification notification_ = null;
+      private com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification notification_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification, com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification.Builder, com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotificationOrBuilder> notificationBuilder_;
       /**
        * <code>.com.crazymakercircle.im.common.bean.msg.MessageNotification notification = 8;</code>
+       * @return Whether the notification field is set.
        */
       public boolean hasNotification() {
-        return notificationBuilder_ != null || notification_ != null;
+        return ((bitField0_ & 0x00000080) != 0);
       }
       /**
        * <code>.com.crazymakercircle.im.common.bean.msg.MessageNotification notification = 8;</code>
+       * @return The notification.
        */
       public com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification getNotification() {
         if (notificationBuilder_ == null) {
@@ -6722,11 +7023,11 @@ public final class ProtoMsg {
             throw new NullPointerException();
           }
           notification_ = value;
-          onChanged();
         } else {
           notificationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -6736,11 +7037,11 @@ public final class ProtoMsg {
           com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification.Builder builderForValue) {
         if (notificationBuilder_ == null) {
           notification_ = builderForValue.build();
-          onChanged();
         } else {
           notificationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -6748,38 +7049,40 @@ public final class ProtoMsg {
        */
       public Builder mergeNotification(com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification value) {
         if (notificationBuilder_ == null) {
-          if (notification_ != null) {
-            notification_ =
-              com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification.newBuilder(notification_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000080) != 0) &&
+            notification_ != null &&
+            notification_ != com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification.getDefaultInstance()) {
+            getNotificationBuilder().mergeFrom(value);
           } else {
             notification_ = value;
           }
-          onChanged();
         } else {
           notificationBuilder_.mergeFrom(value);
         }
-
+        if (notification_ != null) {
+          bitField0_ |= 0x00000080;
+          onChanged();
+        }
         return this;
       }
       /**
        * <code>.com.crazymakercircle.im.common.bean.msg.MessageNotification notification = 8;</code>
        */
       public Builder clearNotification() {
-        if (notificationBuilder_ == null) {
-          notification_ = null;
-          onChanged();
-        } else {
-          notification_ = null;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        notification_ = null;
+        if (notificationBuilder_ != null) {
+          notificationBuilder_.dispose();
           notificationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.com.crazymakercircle.im.common.bean.msg.MessageNotification notification = 8;</code>
        */
       public com.crazymakercircle.im.common.bean.msg.ProtoMsg.MessageNotification.Builder getNotificationBuilder() {
-        
+        bitField0_ |= 0x00000080;
         onChanged();
         return getNotificationFieldBuilder().getBuilder();
       }
@@ -6813,7 +7116,7 @@ public final class ProtoMsg {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -6843,7 +7146,18 @@ public final class ProtoMsg {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Message(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -6937,18 +7251,10 @@ public final class ProtoMsg {
       "\n\017MESSAGE_REQUEST\020\006\022\024\n\020MESSAGE_RESPONSE\020" +
       "\007\022\030\n\024MESSAGE_NOTIFICATION\020\010b\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-        }, assigner);
+        });
     internal_static_com_crazymakercircle_im_common_bean_msg_LoginRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_com_crazymakercircle_im_common_bean_msg_LoginRequest_fieldAccessorTable = new

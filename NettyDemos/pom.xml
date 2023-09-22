@@ -219,7 +219,7 @@
                     <!--临时目录-->
                     <temporaryProtoFileDirectory>${project.build.directory}/protoc-temp</temporaryProtoFileDirectory>
                     <!--protoc 可执行文件路径-->
-                    <protocExecutable>${project.basedir}/protobuf/protoc3.6.1.exe</protocExecutable>
+                    <protocExecutable>/opt/homebrew/bin/protoc</protocExecutable>
                 </configuration>
                 <executions>
                     <execution>
