@@ -2,6 +2,7 @@ package com.crazymakercircle.coccurent;
 
 import com.crazymakercircle.util.Logger;
 import io.netty.util.concurrent.DefaultEventExecutorGroup;
+import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
 import io.netty.util.concurrent.Promise;
 
@@ -137,17 +138,14 @@ public class NettyPromiseDemo {
 
 
         //绑定任务执行完成后的回调，到异步任务
-        hotPromise.addListener(new GenericFutureListener() {
-            @Override
-            public void operationComplete(io.netty.util.concurrent.Future future) throws Exception {
-                if (future.isSuccess()) {
-                    mainJob.waterOk = true;
-                    Logger.info("烧水 完成，尝试着去吃吃茶!");
-                    mainJob.drinkTea();
-                } else {
-                    mainJob.waterOk = false;
-                    Logger.info("烧水 失败啦!");
-                }
+        hotPromise.addListener(future -> {
+            if (future.isSuccess()) {
+                mainJob.waterOk = true;
+                Logger.info("烧水 完成，尝试着去吃吃茶!");
+                mainJob.drinkTea();
+            } else {
+                mainJob.waterOk = false;
+                Logger.info("烧水 失败啦!");
             }
         });
 
@@ -176,7 +174,7 @@ public class NettyPromiseDemo {
 
 
         //提交烧水的业务逻辑，取到异步任务
-        io.netty.util.concurrent.Future hotFuture = npool.submit(hotJob);
+        Future<?> hotFuture = npool.submit(hotJob);
         //提交清洗的业务逻辑，取到异步任务
 
         io.netty.util.concurrent.Future<Boolean> washFuture = npool.submit(washJob);
