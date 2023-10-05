@@ -38,12 +38,7 @@ public class NettyReactorTest {
 
 //        ExecutorService pool = new DefaultEventLoop();
         ExecutorService pool = new NioEventLoopGroup(2);
-        Runnable runTarget = new Runnable() {
-            @Override
-            public void run() {
-                Logger.tcfo(" i am execute by  thread pool");
-            }
-        };
+        Runnable runTarget = () -> Logger.tcfo(" i am execute by  thread pool");
         for (int i = 0; i < 10; i++) {
             pool.submit(runTarget);
 
@@ -56,12 +51,7 @@ public class NettyReactorTest {
     public void testJUCscheduleAtFixedRate() {
 
         ScheduledExecutorService pool = Executors.newScheduledThreadPool(2);
-        Runnable runTarget = new Runnable() {
-            @Override
-            public void run() {
-                Logger.tcfo(" i am execute by  thread pool");
-            }
-        };
+        Runnable runTarget = () -> Logger.tcfo(" i am execute by  thread pool");
         for (int i = 0; i < 10; i++) {
             pool.scheduleAtFixedRate(runTarget, 1, 1, TimeUnit.MINUTES);
 
@@ -74,14 +64,9 @@ public class NettyReactorTest {
     public void testNettyscheduleAtFixedRate() {
 
         ScheduledExecutorService pool = new NioEventLoopGroup(2);
-        Runnable runTarget = new Runnable() {
-            @Override
-            public void run() {
-                Logger.tcfo(" i am execute by  thread pool");
-            }
-        };
+        Runnable runTarget = () -> Logger.tcfo(" i am execute by  thread pool");
         for (int i = 0; i < 10; i++) {
-            ((ScheduledExecutorService) pool).scheduleAtFixedRate(runTarget, 10, 10, TimeUnit.SECONDS);
+            pool.scheduleAtFixedRate(runTarget, 10, 10, TimeUnit.SECONDS);
 
         }
 
@@ -235,19 +220,7 @@ public class NettyReactorTest {
     public void testThreadPoolOfNetty() {
 
         IntegerWrapperNoneLock[] integerWrappers = new IntegerWrapperNoneLock[100];
-
-        // 500次，8个线程 ，juc 程序运行时间： 19567ms
-        // 500次，8个线程 ，juc 程序运行时间： 19s
-        // 500次，8个线程 ，netty 程序运行时间： 16587ms
-        // 500次，8个线程 ，netty 程序运行时间： 16s
-
-        //1000w次，16个线程 ，juc 程序运行时间： 33101ms
-        //1000w次，16个线程 ，juc 程序运行时间： 33s
-        //
-        // 1000w次，16个线程 ，netty 程序运行时间：  29848ms
-        //1000w次，16个线程 ，netty 程序运行时间： 29s
-//        Integer countPerInt = 50000;
-        Integer countPerInt = 100000;
+        Integer countPerInt = 500;
 
         CountDownLatch latch = new CountDownLatch(countPerInt * 100);
 
@@ -259,31 +232,23 @@ public class NettyReactorTest {
 
         for (int i = 0; i < 100; i++) {
             integerWrappers[i] = new IntegerWrapperNoneLock();
-
-            EventExecutor eventloop = pool.next();
-
-            integerWrappers[i].register(eventloop);
-
+            EventExecutor eventLoop = pool.next();
+            integerWrappers[i].register(eventLoop);
         }
 
 
         for (int j = 0; j < countPerInt; j++) {
-
             for (int i = 0; i < 100; i++) {
-
                 IntegerWrapperNoneLock integerWrapper = integerWrappers[i];
-
-                EventExecutor eventloop = integerWrapper.eventloop;
-
-                eventloop.submit(new TaskNoneLock(integerWrapper, latch));
-
+                EventExecutor eventLoop = integerWrapper.eventloop;
+                eventLoop.submit(new TaskNoneLock(integerWrapper, latch));
             }
         }
 
         try {
             latch.await();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            Logger.error(e.getMessage());
         }
 
         long endTime = System.currentTimeMillis();
@@ -298,6 +263,4 @@ public class NettyReactorTest {
             }
         }
     }
-
-
 }

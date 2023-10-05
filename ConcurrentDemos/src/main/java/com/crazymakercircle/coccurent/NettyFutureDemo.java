@@ -2,6 +2,7 @@ package com.crazymakercircle.coccurent;
 
 import com.crazymakercircle.util.Logger;
 import io.netty.util.concurrent.DefaultEventExecutorGroup;
+import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
 
 import java.util.concurrent.Callable;
@@ -90,7 +91,6 @@ public class NettyFutureDemo {
             }
         }
 
-
         public void drinkTea() {
             if (waterOk && cupOk) {
                 Logger.info("泡茶喝，茶喝完");
@@ -119,43 +119,37 @@ public class NettyFutureDemo {
         Callable<Boolean> washJob = new WashJob();
 
         //创建 netty  线程池
-        DefaultEventExecutorGroup npool = new DefaultEventExecutorGroup(2);
+        DefaultEventExecutorGroup nettyPool = new DefaultEventExecutorGroup(2);
 
         //提交烧水的业务逻辑，取到异步任务
-        io.netty.util.concurrent.Future<Boolean> hotFuture = npool.submit(hotJob);
+        io.netty.util.concurrent.Future<Boolean> hotFuture = nettyPool.submit(hotJob);
         //绑定任务执行完成后的回调，到异步任务
-        hotFuture.addListener(new GenericFutureListener() {
-            @Override
-            public void operationComplete(io.netty.util.concurrent.Future future) throws Exception {
-                if (future.isSuccess()) {
-                    mainJob.waterOk = true;
-                    Logger.info("烧水 完成，尝试着去吃吃茶!");
-                    mainJob.drinkTea();
-                } else {
-                    mainJob.waterOk = false;
-                    Logger.info("烧水 失败啦!");
-                }
+        hotFuture.addListener(future -> {
+            if (future.isSuccess()) {
+                mainJob.waterOk = true;
+                Logger.info("烧水 完成，尝试着去吃吃茶!");
+                mainJob.drinkTea();
+            } else {
+                mainJob.waterOk = false;
+                Logger.info("烧水 失败啦!");
             }
         });
 
 
         //提交清洗的业务逻辑，取到异步任务
 
-        io.netty.util.concurrent.Future<Boolean> washFuture = npool.submit(washJob);
+        io.netty.util.concurrent.Future<Boolean> washFuture = nettyPool.submit(washJob);
         //绑定任务执行完成后的回调，到异步任务
 
-        washFuture.addListener(new GenericFutureListener() {
-            @Override
-            public void operationComplete(io.netty.util.concurrent.Future future) throws Exception {
-                if (future.isSuccess()) {
-                    mainJob.cupOk = true;
-                    Logger.info("杯子洗 完成，尝试着去吃吃茶!");
-                    mainJob.drinkTea();
-                } else {
-                    mainJob.cupOk = false;
-                    Logger.info("杯子洗不了，没有茶喝了");
+        washFuture.addListener(future -> {
+            if (future.isSuccess()) {
+                mainJob.cupOk = true;
+                Logger.info("杯子洗 完成，尝试着去吃吃茶!");
+                mainJob.drinkTea();
+            } else {
+                mainJob.cupOk = false;
+                Logger.info("杯子洗不了，没有茶喝了");
 
-                }
             }
         });
     }

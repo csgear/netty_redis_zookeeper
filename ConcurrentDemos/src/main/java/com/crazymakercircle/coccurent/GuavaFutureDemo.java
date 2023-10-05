@@ -94,19 +94,15 @@ public class GuavaFutureDemo {
 
         public void drinkTea() {
             if (waterOk && cupOk) {
-
                 Logger.info("泡茶喝，茶喝完");
 
                 this.waterOk = false;
-
                 this.gap = SLEEP_GAP * 100;
-
             } else if (!waterOk) {
                 Logger.info("烧水 没有完成，没有茶喝了");
             } else if (!cupOk ) {
                 Logger.info("洗杯子  没有完成，没有茶喝了");
             }
-
         }
     }
 
@@ -124,15 +120,15 @@ public class GuavaFutureDemo {
         Callable<Boolean> washJob = new WashJob();
 
         //创建java 线程池
-        ExecutorService jPool =
+        ExecutorService javaPool =
                 Executors.newFixedThreadPool(10);
 
         //包装java线程池，构造guava 线程池
-        ListeningExecutorService gPool =
-                MoreExecutors.listeningDecorator(jPool);
+        ListeningExecutorService guavaPool =
+                MoreExecutors.listeningDecorator(javaPool);
 
         //提交烧水的业务逻辑，取到异步任务
-        ListenableFuture<Boolean> hotFuture = gPool.submit(hotJob);
+        ListenableFuture<Boolean> hotFuture = guavaPool.submit(hotJob);
 
         //绑定任务执行完成后的回调，到异步任务
         Futures.addCallback(hotFuture, new FutureCallback<Boolean>() {
@@ -148,12 +144,12 @@ public class GuavaFutureDemo {
             public void onFailure(Throwable t) {
                 Logger.info("烧水失败，没有茶喝了");
             }
-        }, jPool);
+        }, guavaPool);
 
 
         //提交清洗的业务逻辑，取到异步任务
 
-        ListenableFuture<Boolean> washFuture = gPool.submit(washJob);
+        ListenableFuture<Boolean> washFuture = guavaPool.submit(washJob);
         //绑定任务执行完成后的回调，到异步任务
         Futures.addCallback(washFuture, new FutureCallback<Boolean>() {
             public void onSuccess(Boolean r) {
@@ -167,7 +163,7 @@ public class GuavaFutureDemo {
             public void onFailure(Throwable t) {
                 Logger.info("杯子洗不了，没有茶喝了");
             }
-        }, jPool);
+        }, guavaPool);
     }
 
 
